@@ -1,146 +1,239 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assistência Colombo | Manutenção de Celulares, Notebooks e Games</title>
-  <!-- Tailwind CSS via CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistência Colombo — Apple & Multimarcas</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .apple-glass {
+      background: rgba(22, 22, 23, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .text-gradient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at center, rgba(120, 40, 200, 0.15) 0%, rgba(0,0,0,0) 70%);
+    }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-[#000000] text-[#F5F5F7] antialiased selection:bg-blue-600 selection:text-white">
 
-  <!-- Header / Navbar -->
-  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <i class="fa-solid fa-microchip text-blue-500 text-2xl"></i>
-        <span class="font-bold text-xl tracking-wide bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-          Assistência Colombo
-        </span>
+  <!-- Apple Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 apple-glass border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between text-xs tracking-tight text-[#A1A1A6]">
+      <div class="flex items-center space-x-2 text-white font-medium text-sm">
+        <i class="fa-brands fa-apple text-lg"></i>
+        <span>Assistência Colombo</span>
       </div>
-      <a href="#diagnostico" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-medium transition text-sm">
-        Orçamento Rápido
+      <div class="hidden md:flex space-x-8">
+        <a href="#iphone18" class="hover:text-white transition">iPhone 18 Pro</a>
+        <a href="#seminovos" class="hover:text-white transition">Seminovos</a>
+        <a href="#assistencia" class="hover:text-[#2997FF] transition">Assistência Técnica</a>
+      </div>
+      <a href="https://wa.me/5541984027119" target="_blank" class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-3 py-1 rounded-full text-xs font-medium transition">
+        WhatsApp
       </a>
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero Section -->
-  <section class="max-w-6xl mx-auto px-4 py-16 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-    <div class="flex-1 space-y-6">
-      <span class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full text-xs font-semibold">
-        Especialistas em Manutenção Técnica
-      </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-        Conserto Rápido e Garantido para seu Dispositivo
+  <!-- Hero Section: iPhone 18 Pro -->
+  <section id="iphone18" class="relative pt-32 pb-20 px-6 text-center hero-glow overflow-hidden">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <span class="text-[#f56300] font-semibold text-sm tracking-wider uppercase">Lançamento</span>
+      <h1 class="text-5xl md:text-7xl font-semibold tracking-tight text-gradient">
+        iPhone 18 Pro
       </h1>
-      <p class="text-slate-400 text-lg">
-        Manutenção preventiva e corretiva em celulares, notebooks e consoles de videogame em Colombo e região.
+      <p class="text-xl md:text-2xl text-[#86868B] font-normal max-w-2xl mx-auto">
+        Acabamento Titanium Deep Burgundy. Câmera quádrupla avançada e o máximo em desempenho.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 pt-2">
-        <a href="#diagnostico" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-center transition flex items-center justify-center gap-2">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Simular Orçamento com IA
+      <div class="flex justify-center items-center space-x-6 pt-4">
+        <a href="https://wa.me/5541984027119?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20novo%20iPhone%2018%20Pro!" target="_blank" class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-2.5 rounded-full text-sm font-medium transition shadow-lg shadow-blue-500/10">
+          Encomendar Agora
         </a>
-        <a href="https://wa.me/5541999999999" target="_blank" class="border border-slate-700 hover:bg-slate-800 text-slate-200 px-6 py-3 rounded-xl font-semibold text-center transition flex items-center justify-center gap-2">
-          <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Falar no WhatsApp
+        <a href="#seminovos" class="text-[#2997FF] hover:underline text-sm font-medium">
+          Ver Seminovos <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
         </a>
+      </div>
+      <div class="pt-8">
+        <p class="text-xs text-[#86868B] uppercase tracking-widest mb-2">Disponível em Estoque / Encomenda</p>
+        <span class="inline-block bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs text-[#F5F5F7]">
+          Edição Especial Deep Burgundy & Titanium Natural
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section class="bg-slate-950/50 py-16 border-y border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center mb-10 text-white">Nossas Especialidades</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Celulares -->
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-blue-500/50 transition">
-          <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 text-xl">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-white">Celulares e Smartphones</h3>
-          <p class="text-slate-400 text-sm">Troca de tela, bateria, conector de carga, reparos em placa e desoxidação.</p>
-        </div>
-        <!-- Notebooks -->
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-blue-500/50 transition">
-          <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-xl">
-            <i class="fa-solid fa-laptop"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-white">Notebooks e Computadores</h3>
-          <p class="text-slate-400 text-sm">Formatação, upgrade de SSD e RAM, limpeza técnica, troca de teclado e telas.</p>
-        </div>
-        <!-- Games -->
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-blue-500/50 transition">
-          <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 text-xl">
-            <i class="fa-solid fa-gamepad"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-white">Consoles de Videogame</h3>
-          <p class="text-slate-400 text-sm">Manutenção de PlayStation, Xbox e Nintendo. Limpeza, troca de pasta térmica e controles.</p>
-        </div>
-      </div>
+  <!-- Vitrine de Seminovos e Selecionados -->
+  <section id="seminovos" class="py-20 px-6 max-w-6xl mx-auto border-t border-white/10">
+    <div class="text-center mb-16 space-y-2">
+      <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight">Seminovos Selecionados</h2>
+      <p class="text-[#86868B]">Aparelhos revisados, com garantia e prontas-entregas na loja.</p>
     </div>
-  </section>
 
-  <!-- Assistente de Pré-Diagnóstico (IA) -->
-  <section id="diagnostico" class="max-w-3xl mx-auto px-4 py-16 w-full">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-6 shadow-xl">
-      <div class="text-center space-y-2">
-        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">Pré-Diagnóstico Inteligente</span>
-        <h2 class="text-2xl font-bold text-white">Qual problema seu aparelho apresenta?</h2>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-      <form id="ia-form" class="space-y-4">
+      <!-- iPhone 16 / Pro Series -->
+      <div class="bg-[#161617] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition">
         <div>
-          <label class="block text-sm font-medium text-slate-300 mb-2">Dispositivo</label>
-          <select id="dispositivo" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="Smartphone">Celular / Smartphone</option>
-            <option value="Notebook">Notebook / Computador</option>
-            <option value="Videogame">Videogame / Console</option>
+          <span class="text-xs text-[#2997FF] font-medium uppercase tracking-wider">Apple</span>
+          <h3 class="text-2xl font-semibold text-white mt-1">iPhone 16 Series</h3>
+          <p class="text-sm text-[#86868B] mt-1">Design de lente vertical e opções Pro Titanium.</p>
+          <div class="my-6 py-8 bg-[#000000]/40 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-mobile-screen text-5xl text-[#86868B]"></i>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs text-[#86868B]">Consulte cores e capacidade</p>
+          <a href="https://wa.me/5541984027119?text=Quero%20saber%20valores%20do%20iPhone%2016" target="_blank" class="mt-3 w-full block text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-2.5 rounded-lg transition">
+            Consultar Valor
+          </a>
+        </div>
+      </div>
+
+      <!-- iPhone 13 / 14 Series -->
+      <div class="bg-[#161617] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition">
+        <div>
+          <span class="text-xs text-[#2997FF] font-medium uppercase tracking-wider">Apple</span>
+          <h3 class="text-2xl font-semibold text-white mt-1">iPhone 13 / 14</h3>
+          <p class="text-sm text-[#86868B] mt-1">Excelente custo-benefício em Midnight, Starlight e Red.</p>
+          <div class="my-6 py-8 bg-[#000000]/40 rounded-xl flex items-center justify-center">
+            <i class="fa-brands fa-apple text-5xl text-[#86868B]"></i>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs text-[#86868B]">A partir de 128GB</p>
+          <a href="https://wa.me/5541984027119?text=Quero%20saber%20valores%20do%20iPhone%2013/14" target="_blank" class="mt-3 w-full block text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-2.5 rounded-lg transition">
+            Consultar Valor
+          </a>
+        </div>
+      </div>
+
+      <!-- Samsung Galaxy A52 5G -->
+      <div class="bg-[#161617] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition">
+        <div>
+          <span class="text-xs text-emerald-400 font-medium uppercase tracking-wider">Promocional</span>
+          <h3 class="text-2xl font-semibold text-white mt-1">Galaxy A52 5G</h3>
+          <p class="text-sm text-[#86868B] mt-1">128GB | 6GB RAM (+6GB RAM Plus)</p>
+          <div class="my-6 py-6 bg-[#000000]/40 rounded-xl text-center">
+            <span class="text-3xl font-bold text-white">R$ 699,00</span>
+          </div>
+        </div>
+        <div>
+          <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20Galaxy%20A52%205G%20por%20R$%20699" target="_blank" class="w-full block text-center bg-[#2997FF] hover:bg-[#0077ED] text-white text-xs font-medium py-2.5 rounded-lg transition">
+            Garantir Aparelho
+          </a>
+        </div>
+      </div>
+
+      <!-- Samsung Galaxy A14 (Usado) - Opção 1 -->
+      <div class="bg-[#161617] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition">
+        <div>
+          <span class="text-xs text-amber-400 font-medium uppercase tracking-wider">Oportunidade</span>
+          <h3 class="text-2xl font-semibold text-white mt-1">Samsung A14 (Usado)</h3>
+          <p class="text-sm text-[#86868B] mt-1">128GB | 4GB RAM — Verde Lima</p>
+          <div class="my-6 py-6 bg-[#000000]/40 rounded-xl text-center">
+            <span class="text-3xl font-bold text-white">R$ 449,00</span>
+          </div>
+        </div>
+        <div>
+          <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20A14%20Verde%20por%20R$%20449" target="_blank" class="w-full block text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-2.5 rounded-lg transition">
+            Comprar Agora
+          </a>
+        </div>
+      </div>
+
+      <!-- Samsung Galaxy A14 (Usado) - Promoção Grafite -->
+      <div class="bg-[#161617] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition">
+        <div>
+          <span class="text-xs text-amber-400 font-medium uppercase tracking-wider">Promoção</span>
+          <h3 class="text-2xl font-semibold text-white mt-1">Samsung A14 (Usado)</h3>
+          <p class="text-sm text-[#86868B] mt-1">128GB | 4GB RAM — Grafite</p>
+          <div class="my-6 py-6 bg-[#000000]/40 rounded-xl text-center">
+            <span class="text-3xl font-bold text-white">R$ 499,00</span>
+          </div>
+        </div>
+        <div>
+          <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20A14%20Grafite%20por%20R$%20499" target="_blank" class="w-full block text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-2.5 rounded-lg transition">
+            Comprar Agora
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Assistência Técnica & Orçamento -->
+  <section id="assistencia" class="py-20 px-6 max-w-4xl mx-auto border-t border-white/10">
+    <div class="text-center mb-12 space-y-2">
+      <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight">Assistência Técnica</h2>
+      <p class="text-[#86868B]">Manutenção de Celulares, Notebooks e Consoles em Colombo - PR.</p>
+    </div>
+
+    <div class="bg-[#161617] border border-white/10 rounded-2xl p-8 shadow-2xl">
+      <form id="ai-form" class="space-y-5">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Equipamento</label>
+          <select id="device-type" class="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
+            <option value="iPhone / iPad">iPhone / iPad</option>
+            <option value="Smartphone Android">Smartphone Android</option>
+            <option value="Notebook / Mac">Notebook / MacBook / PC</option>
+            <option value="Console / Game">Console de Game (PS4, PS5, Xbox)</option>
           </select>
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-slate-300 mb-2">Qual o modelo ou marca?</label>
-          <input type="text" id="modelo" placeholder="Ex: Moto G34, Samsung J7, PS4, Dell..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-blue-500" required />
+          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Modelo do Aparelho</label>
+          <input type="text" id="device-model" placeholder="Ex: iPhone 13, Samsung A14, PS4..." required class="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-slate-300 mb-2">Descreva o defeito ou o que aconteceu</label>
-          <textarea id="defeito" rows="3" placeholder="Ex: A tela quebrou, não carrega mais, barulho forte na ventoinha..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-blue-500" required></textarea>
+          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Serviço Solicitado</label>
+          <select id="device-issue" class="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
+            <option value="Troca de Tela / Display">Troca de Tela / Display LCD</option>
+            <option value="Troca de Bateria">Troca de Bateria</option>
+            <option value="Conector / Carga">Conector de Carga</option>
+            <option value="Limpeza e Pasta Térmica">Limpeza + Pasta Térmica (Consoles/PCs)</option>
+            <option value="Reparo Geral / Placa">Reparo de Placa / Outro Defeito</option>
+          </select>
         </div>
 
-        <button type="button" onclick="enviarWhatsapp()" class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
-          <i class="fa-brands fa-whatsapp text-xl"></i> Enviar Pré-Diagnóstico no WhatsApp
+        <button type="submit" class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white font-medium py-3.5 rounded-xl transition flex items-center justify-center space-x-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Solicitar Orçamento no WhatsApp</span>
         </button>
       </form>
     </div>
   </section>
 
-  <!-- Rodapé -->
-  <footer class="mt-auto border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-    <p>&copy; 2026 Assistência Colombo. Todos os direitos reservados.</p>
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/10 text-center text-xs text-[#86868B] space-y-2">
+    <p>© 2026 Assistência Colombo. Todos os direitos reservados.</p>
+    <p>Atendimento técnico especializado e vendas em Colombo - PR | WhatsApp: +55 41 98402-7119</p>
   </footer>
 
   <script>
-    function enviarWhatsapp() {
-      const dispositivo = document.getElementById('dispositivo').value;
-      const modelo = document.getElementById('modelo').value;
-      const defeito = document.getElementById('defeito').value;
-      
-      // Substitua pelo seu número do WhatsApp comercial (Com DDD, ex: 5541999999999)
-      const numeroWhatsapp = "5541999999999"; 
-      
-      const texto = `Olá! Vim pelo site da Assistência Colombo e gostaria de um orçamento:%0A%0A` +
-                    `📱 *Dispositivo:* ${dispositivo}%0A` +
-                    `🏷️ *Modelo:* ${modelo}%0A` +
-                    `⚠️ *Defeito:* ${defeito}`;
-      
-      window.open(`https://wa.me/${+5541984027119}?text=${texto}`, '_blank');
-    }
+    document.getElementById('ai-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = "5541984027119";
+      const type = document.getElementById('device-type').value;
+      const model = document.getElementById('device-model').value;
+      const issue = document.getElementById('device-issue').value;
+
+      const message = `Olá, Assistência Colombo! Gostaria de um orçamento:\n\n` +
+                      `• *Aparelho:* ${type}\n` +
+                      `• *Modelo:* ${model}\n` +
+                      `• *Serviço:* ${issue}`;
+
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    });
   </script>
 </body>
 </html>
