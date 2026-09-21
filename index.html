@@ -1,423 +1,345 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iPhone 18 Pro — Assistência Colombo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #000000; color: #F5F5F7; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assistência Colombo — iPhone, Seminovos e Loja Online</title>
 
-    /* Apple Glassmorphism Blur */
-    .apple-glass {
-      background: rgba(22, 22, 23, 0.8);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-    }
+<meta name="description" content="Venda de iPhone novo e seminovo, Xiaomi, Samsung e Realme. Loja online com entrega em Colombo - PR e região.">
+<meta name="theme-color" content="#000000">
 
-    /* Apple Gradient Text */
-    .text-apple-gradient {
-      background: linear-gradient(180deg, #FFFFFF 0%, #86868B 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .text-burgundy-gradient {
-      background: linear-gradient(135deg, #FF3B30 0%, #8E0E00 50%, #4A0000 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Hero Ambient Glow Effects */
-    .hero-glow-burgundy {
-      background: radial-gradient(circle at center, rgba(142, 14, 0, 0.35) 0%, rgba(0,0,0,0) 70%);
-    }
-
-    .hero-glow-titanium {
-      background: radial-gradient(circle at center, rgba(160, 150, 130, 0.25) 0%, rgba(0,0,0,0) 70%);
-    }
-
-    /* Smooth Image Glow Shadow */
-    .device-shadow-burgundy {
-      filter: drop-shadow(0px 25px 50px rgba(142, 14, 0, 0.45));
-    }
-    
-    .device-shadow-titanium {
-      filter: drop-shadow(0px 25px 50px rgba(255, 255, 255, 0.2));
-    }
-
-    /* Apple Spec Badges */
-    .apple-badge {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-    }
-  </style>
+<style>
+  :root{
+    --bg:#000000;
+    --surface:#161617;
+    --line:rgba(255,255,255,.10);
+    --text:#F5F5F7;
+    --muted:#86868B;
+    --blue:#2997FF;
+  }
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);color:var(--text);
+  }
+  .apple-glass{background:rgba(22,22,23,.85);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:24px;}
+  .card:hover{border-color:rgba(255,255,255,.22);}
+  .stage{
+    background:radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.07) 0%,rgba(0,0,0,0) 62%),#0A0A0B;
+    border-radius:20px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+</style>
 </head>
-<body class="antialiased selection:bg-blue-600 selection:text-white">
 
-  <!-- Apple Subnav Stick Header -->
-  <nav class="fixed top-0 w-full z-50 apple-glass border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between text-xs tracking-tight text-[#A1A1A6]">
-      <a href="#inicio" class="flex items-center space-x-2 text-white font-medium text-sm hover:opacity-80 transition">
-        <i class="fa-brands fa-apple text-lg"></i>
-        <span>Assistência Colombo</span>
-      </a>
+<body class="antialiased selection:bg-blue-600 selection:text-white pb-20">
+
+<!-- ============ CABEÇALHO / NAVEGAÇÃO ============ -->
+<header class="fixed top-0 inset-x-0 z-40 apple-glass border-b border-white/10">
+  <nav class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between text-sm">
+
+    <a href="#inicio" class="flex items-center gap-2 text-white font-medium">
+      <i class="fa-solid fa-mobile-screen-button text-[#2997FF] text-xl"></i>
+      <span class="tracking-tight font-semibold">Assistência Colombo</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-6 text-[#A1A1A6] text-xs">
+      <a href="#produtos" class="hover:text-white transition">Produtos</a>
+      <a href="#assistencia" class="hover:text-white transition">Assistência</a>
+      <a href="#checkout" class="hover:text-white transition">Finalizar Compra</a>
+    </div>
+
+    <!-- Botão do Carrinho -->
+    <button id="cart-toggle-btn" class="relative bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-xs font-medium transition flex items-center gap-2">
+      <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i>
+      <span>Carrinho</span>
+      <span id="cart-count" class="bg-[#2997FF] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+    </button>
+  </nav>
+</header>
+
+<!-- ============ OFERTA EM DESTAQUE ============ -->
+<section id="inicio" class="pt-24 pb-12 px-5 max-w-6xl mx-auto">
+  <div class="card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center bg-gradient-to-b from-zinc-900 to-black">
+    <div class="space-y-4">
+      <span class="text-xs font-semibold text-[#2997FF] tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Destaque da Loja</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Realme P4 Power 5G</h1>
+      <p class="text-sm text-[#86868B]">256 GB, 8 GB RAM, Bateria Titan de 10.001 mAh e Carga Rápida de 80W.</p>
       
-      <div class="hidden md:flex space-x-8">
-        <a href="#iphone18" class="hover:text-white transition">iPhone 18 Pro</a>
-        <a href="#camera" class="hover:text-white transition">Câmeras</a>
-        <a href="#seminovos" class="hover:text-white transition">Seminovos</a>
-        <a href="#assistencia" class="hover:text-[#2997FF] transition">Assistência Técnica</a>
-        <a href="#localizacao" class="hover:text-white transition">Localização</a>
+      <div class="text-2xl font-bold text-white">R$ 2.050,00 <span class="text-xs font-normal text-[#86868B]">à vista no Pix/Dinheiro</span></div>
+      
+      <div class="flex flex-wrap gap-3 pt-2">
+        <!-- Link direto PagBank -->
+        <a href="https://pagseguro.uol.com.br" target="_blank" rel="noopener" 
+           class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
+          <i class="fa-solid fa-bolt"></i> Comprar Agora (PagBank)
+        </a>
+        <button onclick="addToCart('Realme P4 Power 5G', 2050.00, 'https://pagseguro.uol.com.br')" 
+                class="border border-white/20 hover:bg-white/10 text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
+          <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+    <div class="stage h-64 md:h-80">
+      <i class="fa-solid fa-mobile-screen text-7xl text-[#2997FF]"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOGO DE PRODUOS ============ -->
+<section id="produtos" class="py-12 px-5 max-w-6xl mx-auto">
+  <h2 class="text-2xl font-bold text-white mb-6">Produtos Disponíveis</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Produto 1 -->
+    <article class="card p-5 flex flex-col justify-between">
+      <div class="stage h-48 mb-4">
+        <i class="fa-brands fa-apple text-5xl text-white"></i>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white">iPhone 18 Pro Max 512GB</h3>
+        <p class="text-xs text-[#86868B] mt-1">Novo, lacrado, garantia de fábrica.</p>
+        <p class="text-xl font-bold text-white mt-3">R$ 13.199,00</p>
+      </div>
+      <div class="mt-5 space-y-2">
+        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
+        <a href="HTTPS://SEU-LINK-PAGBANK-IPHONE18.com" target="_blank" rel="noopener" 
+           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-[#2997FF]"></i> Pagar com PagBank
+        </a>
+        <button onclick="addToCart('iPhone 18 Pro Max 512GB', 13199.00, 'HTTPS://SEU-LINK-PAGBANK-IPHONE18.com')" 
+                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </article>
+
+    <!-- Produto 2 -->
+    <article class="card p-5 flex flex-col justify-between">
+      <div class="stage h-48 mb-4">
+        <i class="fa-solid fa-mobile-button text-5xl text-emerald-400"></i>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white">Galaxy A52 5G 128GB</h3>
+        <p class="text-xs text-[#86868B] mt-1">Seminovo revisado com garantia da loja.</p>
+        <p class="text-xl font-bold text-white mt-3">R$ 699,00</p>
+      </div>
+      <div class="mt-5 space-y-2">
+        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
+        <a href="HTTPS://SEU-LINK-PAGBANK-A52.com" target="_blank" rel="noopener" 
+           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
+          Pagar com PagBank
+        </a>
+        <button onclick="addToCart('Galaxy A52 5G 128GB', 699.00, 'HTTPS://SEU-LINK-PAGBANK-A52.com')" 
+                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </article>
+
+    <!-- Produto 3 -->
+    <article class="card p-5 flex flex-col justify-between">
+      <div class="stage h-48 mb-4">
+        <i class="fa-solid fa-mobile text-5xl text-orange-400"></i>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white">Redmi 15C 128GB</h3>
+        <p class="text-xs text-[#86868B] mt-1">Smartphone Xiaomi novo com pronta-entrega.</p>
+        <p class="text-xl font-bold text-white mt-3">R$ 859,00</p>
+      </div>
+      <div class="mt-5 space-y-2">
+        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
+        <a href="HTTPS://SEU-LINK-PAGBANK-REDMI15C.com" target="_blank" rel="noopener" 
+           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
+          Pagar com PagBank
+        </a>
+        <button onclick="addToCart('Redmi 15C 128GB', 859.00, 'HTTPS://SEU-LINK-PAGBANK-REDMI15C.com')" 
+                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PAINEL DO CARRINHO (DRAWER SLIDE-OVER) ============ -->
+<div id="cart-drawer" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
+  <div class="w-full max-w-md bg-[#161617] border-l border-white/10 h-full p-6 flex flex-col justify-between">
+    
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i> Seu Carrinho
+        </h3>
+        <button id="cart-close-btn" class="text-xs text-[#86868B] hover:text-white p-2">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
       </div>
 
-      <a href="https://wa.me/5541984027119" target="_blank" class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-3.5 py-1 rounded-full text-xs font-medium transition flex items-center space-x-1.5">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>WhatsApp</span>
+      <!-- Lista de itens do carrinho -->
+      <div id="cart-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+        <p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>
+      </div>
+    </div>
+
+    <!-- Totalizador e Checkout -->
+    <div class="pt-4 border-t border-white/10 space-y-4">
+      <div class="flex justify-between items-center text-sm font-semibold text-white">
+        <span>Total:</span>
+        <span id="cart-total" class="text-lg text-[#2997FF]">R$ 0,00</span>
+      </div>
+
+      <a href="#checkout" onclick="closeCart()" 
+         class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-3 rounded-xl text-xs font-semibold text-center block transition">
+        Ir para Finalizar Compra
       </a>
     </div>
-  </nav>
 
-  <!-- Banner Topo Parcelamento -->
-  <div class="pt-12 bg-[#161617] border-b border-white/10 text-center py-2 px-4 text-xs text-[#86868B]">
-    <span>Compre seu iPhone novo ou seminovo em <strong>até 18X nos cartões</strong> | Atendimento em Colombo - PR</span>
+  </div>
+</div>
+
+<!-- ============ PÁGINA DE CHECKOUT / FINALIZAÇÃO ============ -->
+<section id="checkout" class="py-16 px-5 max-w-4xl mx-auto border-t border-white/10">
+  <div class="mb-8">
+    <h2 class="text-3xl font-extrabold text-white tracking-tight">Finalizar Compra</h2>
+    <p class="text-xs text-[#86868B] mt-1">Revise seu pedido e conclua seu pagamento com total segurança via PagBank.</p>
   </div>
 
-  <!-- HERO SECTION: Apple Showcase iPhone 18 Pro -->
-  <section id="iphone18" class="relative pt-16 pb-24 px-6 text-center overflow-hidden">
-    <!-- Dynamic Glow Backlight -->
-    <div id="ambient-glow" class="absolute inset-0 hero-glow-burgundy transition-all duration-700 pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-5xl mx-auto space-y-6">
-      <span class="inline-block text-[#F56300] font-semibold text-xs tracking-widest uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-        Desenvolvido para o Extraordinário
-      </span>
-
-      <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight text-apple-gradient">
-        iPhone 18 Pro
-      </h1>
-
-      <p class="text-xl md:text-3xl text-[#86868B] font-medium max-w-3xl mx-auto tracking-tight">
-        Titanium Deep Burgundy. Chip A20 Pro. <br class="hidden md:block"/>
-        O ápice da inovação Apple, disponível na Assistência Colombo.
-      </p>
-
-      <!-- Interactive Device Frame & Color Preview -->
-      <div class="py-8 flex flex-col items-center justify-center space-y-8">
-        
-        <!-- Frame do Aparelho (Simulando Render Apple) -->
-        <div class="relative group cursor-pointer">
-          <div class="w-64 md:w-80 h-[380px] md:h-[480px] bg-gradient-to-b from-neutral-900 to-black rounded-[48px] p-4 border-4 border-white/10 shadow-2xl transition-all duration-500 transform group-hover:scale-105 flex flex-col items-center justify-between">
-            
-            <!-- Dynamic Island Superior -->
-            <div class="w-24 h-5 bg-black rounded-full flex items-center justify-end px-2 space-x-1">
-              <div class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></div>
-            </div>
-
-            <!-- Centro: Apresentação da Câmera / Cor -->
-            <div id="device-preview" class="text-center my-auto transition-all duration-500">
-              <i class="fa-brands fa-apple text-7xl text-red-700 opacity-90 mb-4 transition-all duration-500" id="apple-logo-glow"></i>
-              <h3 id="color-title" class="text-xl font-bold text-white tracking-wide">Deep Burgundy</h3>
-              <p id="color-desc" class="text-xs text-[#86868B] mt-1">Acabamento Titanium Vinho Exclusivo</p>
-            </div>
-
-            <!-- Rodapé do Mockup -->
-            <div class="text-[10px] text-[#86868B] tracking-widest uppercase">Quad Camera • Sapphire Glass</div>
-          </div>
-        </div>
-
-        <!-- Seletor de Cores Estilo Apple -->
-        <div class="flex flex-col items-center space-y-3">
-          <span class="text-xs text-[#86868B] tracking-wider uppercase font-medium">Escolha o Acabamento:</span>
-          <div class="flex space-x-4 bg-white/5 border border-white/10 p-2 rounded-full backdrop-blur-md">
-            
-            <!-- Deep Burgundy -->
-            <button onclick="changeColor('burgundy')" title="Deep Burgundy" class="w-7 h-7 rounded-full bg-[#5B0E1E] ring-2 ring-white/50 focus:outline-none transition-all transform hover:scale-110"></button>
-            
-            <!-- Natural Titanium -->
-            <button onclick="changeColor('titanium')" title="Natural Titanium" class="w-7 h-7 rounded-full bg-[#9A958C] hover:ring-2 hover:ring-white/50 focus:outline-none transition-all transform hover:scale-110"></button>
-            
-            <!-- Space Black -->
-            <button onclick="changeColor('black')" title="Space Black" class="w-7 h-7 rounded-full bg-[#242526] hover:ring-2 hover:ring-white/50 focus:outline-none transition-all transform hover:scale-110"></button>
-            
-            <!-- Desert Gold -->
-            <button onclick="changeColor('gold')" title="Desert Gold" class="w-7 h-7 rounded-full bg-[#C2A382] hover:ring-2 hover:ring-white/50 focus:outline-none transition-all transform hover:scale-110"></button>
-          </div>
-        </div>
-
+  <div class="grid md:grid-cols-2 gap-8">
+    
+    <!-- Resumo do Pedido -->
+    <div class="card p-6 space-y-4">
+      <h3 class="text-base font-semibold text-white border-b border-white/10 pb-3">Resumo do Pedido</h3>
+      <div id="checkout-summary-list" class="space-y-3 text-xs text-[#86868B]">
+        <p>Nenhum item selecionado.</p>
       </div>
-
-      <!-- Call to Action Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-        <a href="https://wa.me/5541984027119?text=Ol%C3%A1%2C%20quero%20encomendar%20o%20novo%20iPhone%2018%20Pro!" target="_blank" class="w-full sm:w-auto bg-[#2997FF] hover:bg-[#0077ED] text-white px-8 py-3.5 rounded-full text-sm font-semibold transition shadow-xl shadow-blue-500/20 flex items-center justify-center space-x-2">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          <span>Encomendar no WhatsApp</span>
-        </a>
-        <a href="#seminovos" class="w-full sm:w-auto border border-white/20 hover:bg-white/10 text-white px-8 py-3.5 rounded-full text-sm font-semibold transition">
-          Ver Opções Seminovas
-        </a>
+      <div class="pt-3 border-t border-white/10 flex justify-between font-bold text-sm text-white">
+        <span>Valor total:</span>
+        <span id="checkout-total-val" class="text-[#2997FF]">R$ 0,00</span>
       </div>
     </div>
-  </section>
 
-  <!-- RECURSOS TÉCNICOS: Câmera & Tecnologia -->
-  <section id="camera" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-      <!-- Câmera Quádrupla Pro -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 space-y-4 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-camera font-bold"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">Sistema Quádruplo</h3>
-        <p class="text-sm text-[#86868B] leading-relaxed">
-          Módulo de lentes redesenhado com captura em ultra-resolução, modo noturno de nível astronômico e gravação em 8K HDR.
-        </p>
+    <!-- Formas de Pagamento PagBank -->
+    <div class="card p-6 space-y-4">
+      <h3 class="text-base font-semibold text-white border-b border-white/10 pb-3">Pagamento Seguro com PagBank</h3>
+      <p class="text-xs text-[#86868B]">Clique abaixo para ser redirecionado à página oficial de checkout seguro para pagamento via Pix ou Cartão de Crédito em até 18x.</p>
+
+      <div id="checkout-pagbank-links" class="space-y-3 pt-2">
+        <p class="text-xs text-amber-400">Adicione um produto ao carrinho ou selecione uma das opções abaixo para pagar:</p>
       </div>
 
-      <!-- Titanium Unibody -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 space-y-4 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-2xl bg-amber-600/20 text-amber-500 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">Titânio Grade 5</h3>
-        <p class="text-sm text-[#86868B] leading-relaxed">
-          Estrutura leve e ultra-resistente, combinada com vidro traseiro em acabamento matte para pegada firme e sofisticada.
-        </p>
+      <div class="pt-4 text-center">
+        <span class="text-[10px] text-[#5A5A60] flex items-center justify-center gap-1">
+          <i class="fa-solid fa-lock"></i> Ambiente de pagamento criptografado
+        </span>
       </div>
-
-      <!-- Chip A20 Pro -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 space-y-4 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-500 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-microchip"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">Chip A20 Pro</h3>
-        <p class="text-sm text-[#86868B] leading-relaxed">
-          Potência incomparável para Inteligência Artificial, ray-tracing avançado em jogos e eficiência energética extrema.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VITRINE DE SEMINOVOS -->
-  <section id="seminovos" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/10">
-    <div class="text-center mb-16 space-y-2">
-      <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight">Seminovos Pronta-Entrega</h2>
-      <p class="text-[#86868B]">Aparelhos rigorosamente testados, com garantia e parcelamento em 18X.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  </div>
+</section>
 
-      <!-- iPhone 16 Pro Series -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition">
-        <div>
-          <span class="text-xs text-[#2997FF] font-medium uppercase tracking-wider">Apple</span>
-          <h3 class="text-2xl font-semibold text-white mt-1">iPhone 16 Series</h3>
-          <p class="text-sm text-[#86868B] mt-1">Design de lente vertical e opções Titanium.</p>
-          <div class="my-6 py-8 bg-black/40 rounded-2xl flex items-center justify-center">
-            <i class="fa-solid fa-mobile-screen text-5xl text-[#86868B]"></i>
+<!-- ============ SCRIPT DO CARRINHO E NAVEGAÇÃO ============ -->
+<script>
+let cart = [];
+
+function addToCart(title, price, pagbankUrl) {
+  const existing = cart.find(item => item.title === title);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ title, price, pagbankUrl, qty: 1 });
+  }
+  updateCartUI();
+  openCart();
+}
+
+function removeFromCart(title) {
+  cart = cart.filter(item => item.title !== title);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  const cartCountEl = document.getElementById('cart-count');
+  const cartTotalEl = document.getElementById('cart-total');
+  const checkoutSummaryList = document.getElementById('checkout-summary-list');
+  const checkoutTotalVal = document.getElementById('checkout-total-val');
+  const checkoutPagbankLinks = document.getElementById('checkout-pagbank-links');
+
+  let total = 0;
+  let totalItems = 0;
+
+  cartItemsContainer.innerHTML = '';
+  checkoutSummaryList.innerHTML = '';
+  checkoutPagbankLinks.innerHTML = '';
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '<p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>';
+    checkoutSummaryList.innerHTML = '<p class="text-xs text-[#86868B]">Nenhum item selecionado.</p>';
+    checkoutPagbankLinks.innerHTML = '<p class="text-xs text-[#86868B]">Adicione produtos ao carrinho para gerar os links de checkout.</p>';
+  } else {
+    cart.forEach(item => {
+      const itemSubtotal = item.price * item.qty;
+      total += itemSubtotal;
+      totalItems += item.qty;
+
+      // Item na gaveta
+      cartItemsContainer.innerHTML += `
+        <div class="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
+          <div>
+            <p class="font-medium text-white">${item.title}</p>
+            <p class="text-[#86868B]">${item.qty}x R$ ${item.price.toFixed(2)}</p>
           </div>
+          <button onclick="removeFromCart('${item.title}')" class="text-red-400 hover:text-red-300">
+            <i class="fa-solid fa-trash"></i>
+          </button>
         </div>
-        <a href="https://wa.me/5541984027119?text=Quero%20consultar%20valores%20do%20iPhone%2016" target="_blank" class="w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-3 rounded-xl transition">
-          Consultar Valor no WhatsApp
+      `;
+
+      // Item no checkout
+      checkoutSummaryList.innerHTML += `
+        <div class="flex justify-between items-center">
+          <span>${item.qty}x ${item.title}</span>
+          <span class="text-white font-medium">R$ ${itemSubtotal.toFixed(2)}</span>
+        </div>
+      `;
+
+      // Botão individual do PagBank no Checkout
+      checkoutPagbankLinks.innerHTML += `
+        <a href="${item.pagbankUrl}" target="_blank" rel="noopener" 
+           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-3 px-4 rounded-xl text-xs font-semibold flex items-center justify-between transition">
+          <span>Pagar ${item.title}</span>
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
-      </div>
-
-      <!-- iPhone 13 / 14 Series -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition">
-        <div>
-          <span class="text-xs text-[#2997FF] font-medium uppercase tracking-wider">Apple</span>
-          <h3 class="text-2xl font-semibold text-white mt-1">iPhone 13 / 14</h3>
-          <p class="text-sm text-[#86868B] mt-1">O melhor custo-benefício em cores vibrantes.</p>
-          <div class="my-6 py-8 bg-black/40 rounded-2xl flex items-center justify-center">
-            <i class="fa-brands fa-apple text-5xl text-[#86868B]"></i>
-          </div>
-        </div>
-        <a href="https://wa.me/5541984027119?text=Quero%20consultar%20valores%20do%20iPhone%2013/14" target="_blank" class="w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-3 rounded-xl transition">
-          Consultar Valor no WhatsApp
-        </a>
-      </div>
-
-      <!-- Samsung Galaxy A52 5G -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition">
-        <div>
-          <span class="text-xs text-emerald-400 font-medium uppercase tracking-wider">Destaque</span>
-          <h3 class="text-2xl font-semibold text-white mt-1">Galaxy A52 5G</h3>
-          <p class="text-sm text-[#86868B] mt-1">128GB | 6GB RAM (+6GB RAM Plus)</p>
-          <div class="my-6 py-6 bg-black/40 rounded-2xl text-center">
-            <span class="text-3xl font-bold text-white">R$ 699,00</span>
-          </div>
-        </div>
-        <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20Galaxy%20A52%205G%20por%20R$%20699" target="_blank" class="w-full text-center bg-[#2997FF] hover:bg-[#0077ED] text-white text-xs font-medium py-3 rounded-xl transition">
-          Garantir Aparelho
-        </a>
-      </div>
-
-      <!-- Samsung Galaxy A14 Verde -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition">
-        <div>
-          <span class="text-xs text-amber-400 font-medium uppercase tracking-wider">Usado Revisado</span>
-          <h3 class="text-2xl font-semibold text-white mt-1">Samsung A14</h3>
-          <p class="text-sm text-[#86868B] mt-1">128GB | 4GB RAM — Verde Lima</p>
-          <div class="my-6 py-6 bg-black/40 rounded-2xl text-center">
-            <span class="text-3xl font-bold text-white">R$ 449,00</span>
-          </div>
-        </div>
-        <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20A14%20Verde%20por%20R$%20449" target="_blank" class="w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-3 rounded-xl transition">
-          Comprar no WhatsApp
-        </a>
-      </div>
-
-      <!-- Samsung Galaxy A14 Grafite -->
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition">
-        <div>
-          <span class="text-xs text-amber-400 font-medium uppercase tracking-wider">Promoção</span>
-          <h3 class="text-2xl font-semibold text-white mt-1">Samsung A14</h3>
-          <p class="text-sm text-[#86868B] mt-1">128GB | 4GB RAM — Grafite</p>
-          <div class="my-6 py-6 bg-black/40 rounded-2xl text-center">
-            <span class="text-3xl font-bold text-white">R$ 499,00</span>
-          </div>
-        </div>
-        <a href="https://wa.me/5541984027119?text=Tenho%20interesse%20no%20Samsung%20A14%20Grafite%20por%20R$%20499" target="_blank" class="w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-3 rounded-xl transition">
-          Comprar no WhatsApp
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ASSISTÊNCIA TÉCNICA -->
-  <section id="assistencia" class="py-24 px-6 max-w-4xl mx-auto border-t border-white/10">
-    <div class="text-center mb-12 space-y-2">
-      <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight">Assistência Técnica</h2>
-      <p class="text-[#86868B]">Manutenção rápida com peças de alta qualidade em Colombo - PR.</p>
-    </div>
-
-    <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 shadow-2xl">
-      <form id="ai-form" class="space-y-5">
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Equipamento</label>
-          <select id="device-type" class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
-            <option value="iPhone / iPad">iPhone / iPad</option>
-            <option value="Smartphone Android">Smartphone Android</option>
-            <option value="Notebook / MacBook">Notebook / MacBook / PC</option>
-            <option value="Console / Game">Console de Game (PS4, PS5, Xbox)</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Modelo do Aparelho</label>
-          <input type="text" id="device-model" placeholder="Ex: iPhone 13, Samsung A14, PS4..." required class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
-        </div>
-
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-[#86868B] mb-2">Serviço Solicitado</label>
-          <select id="device-issue" class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#2997FF] transition">
-            <option value="Troca de Tela / Display">Troca de Tela / Display LCD</option>
-            <option value="Troca de Bateria">Troca de Bateria</option>
-            <option value="Conector / Carga">Conector de Carga</option>
-            <option value="Limpeza e Pasta Térmica">Limpeza + Pasta Térmica</option>
-            <option value="Reparo de Placa">Reparo de Placa / Outro Defeito</option>
-          </select>
-        </div>
-
-        <button type="submit" class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white font-medium py-3.5 rounded-xl transition flex items-center justify-center space-x-2">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          <span>Solicitar Orçamento no WhatsApp</span>
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- LOCALIZAÇÃO -->
-  <section id="localizacao" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 space-y-6">
-        <div>
-          <h3 class="text-2xl font-semibold text-white mb-2">Assistência Colombo</h3>
-          <p class="text-sm text-[#86868B]">
-            <i class="fa-solid fa-location-dot text-[#2997FF] mr-2"></i>
-            R. José Antônio Gonçalves, 404 — Monza, Colombo - PR
-          </p>
-        </div>
-        <div class="space-y-2 text-sm text-[#86868B]">
-          <p><i class="fa-solid fa-phone text-[#2997FF] mr-2"></i> <strong>WhatsApp:</strong> (41) 98402-7119</p>
-          <p><i class="fa-solid fa-credit-card text-[#2997FF] mr-2"></i> <strong>Pagamento:</strong> Aceitamos cartões em até 18X, Pix e Dinheiro</p>
-        </div>
-        <a href="https://maps.google.com/?q=Rua+Jose+Antonio+Goncalves+404+Monza+Colombo+PR" target="_blank" class="inline-block bg-white/10 hover:bg-white/20 text-white text-xs font-medium px-5 py-2.5 rounded-xl transition">
-          Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
-        </a>
-      </div>
-
-      <div class="bg-[#161617] border border-white/10 rounded-3xl p-8 text-center space-y-4">
-        <i class="fa-solid fa-comments text-4xl text-[#2997FF]"></i>
-        <h3 class="text-2xl font-semibold text-white">Atendimento Direto</h3>
-        <p class="text-sm text-[#86868B]">
-          Tire dúvidas ou agende o recolhimento do seu aparelho via motoboy.
-        </p>
-        <a href="https://wa.me/5541984027119" target="_blank" class="inline-block bg-[#2997FF] hover:bg-[#0077ED] text-white text-xs font-medium px-6 py-3 rounded-full transition">
-          Falar no WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-12 border-t border-white/10 text-center text-xs text-[#86868B] space-y-2">
-    <p>© 2026 Assistência Colombo. Todos os direitos reservados.</p>
-    <p>R. José Antônio Gonçalves, 404 - Monza, Colombo - PR | WhatsApp: +55 41 98402-7119</p>
-  </footer>
-
-  <!-- SCRIPT INTERATIVO APPLE SELETOR DE CORES & WHATSAPP -->
-  <script>
-    function changeColor(color) {
-      const glow = document.getElementById('ambient-glow');
-      const title = document.getElementById('color-title');
-      const desc = document.getElementById('color-desc');
-      const logo = document.getElementById('apple-logo-glow');
-
-      if (color === 'burgundy') {
-        glow.className = "absolute inset-0 hero-glow-burgundy transition-all duration-700 pointer-events-none";
-        title.innerText = "Deep Burgundy";
-        desc.innerText = "Acabamento Titanium Vinho Exclusivo";
-        logo.className = "fa-brands fa-apple text-7xl text-red-700 opacity-90 mb-4 transition-all duration-500";
-      } else if (color === 'titanium') {
-        glow.className = "absolute inset-0 hero-glow-titanium transition-all duration-700 pointer-events-none";
-        title.innerText = "Natural Titanium";
-        desc.innerText = "Titânio Natural Escovado de Alta Resistência";
-        logo.className = "fa-brands fa-apple text-7xl text-stone-300 opacity-90 mb-4 transition-all duration-500";
-      } else if (color === 'black') {
-        glow.className = "absolute inset-0 bg-neutral-900/40 transition-all duration-700 pointer-events-none";
-        title.innerText = "Space Black";
-        desc.innerText = "Preto Espacial com Revestimento Matte";
-        logo.className = "fa-brands fa-apple text-7xl text-neutral-400 opacity-90 mb-4 transition-all duration-500";
-      } else if (color === 'gold') {
-        glow.className = "absolute inset-0 bg-amber-900/20 transition-all duration-700 pointer-events-none";
-        title.innerText = "Desert Gold";
-        desc.innerText = "Dourado Deserto Refinado com Brilho Suave";
-        logo.className = "fa-brands fa-apple text-7xl text-amber-300 opacity-90 mb-4 transition-all duration-500";
-      }
-    }
-
-    // Formulário de Orçamento WhatsApp
-    document.getElementById('ai-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const phone = "5541984027119";
-      const type = document.getElementById('device-type').value;
-      const model = document.getElementById('device-model').value;
-      const issue = document.getElementById('device-issue').value;
-
-      const message = `Olá, Assistência Colombo! Gostaria de um orçamento:\n\n` +
-                      `• *Aparelho:* ${type}\n` +
-                      `• *Modelo:* ${model}\n` +
-                      `• *Serviço:* ${issue}`;
-
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      `;
     });
-  </script>
+  }
+
+  cartCountEl.textContent = totalItems;
+  cartTotalEl.textContent = `R$ ${total.toFixed(2)}`;
+  checkoutTotalVal.textContent = `R$ ${total.toFixed(2)}`;
+}
+
+function openCart() {
+  document.getElementById('cart-drawer').classList.remove('hidden');
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.add('hidden');
+}
+
+document.getElementById('cart-toggle-btn').addEventListener('click', openCart);
+document.getElementById('cart-close-btn').addEventListener('click', closeCart);
+</script>
+
 </body>
 </html>
