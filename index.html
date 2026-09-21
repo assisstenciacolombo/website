@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Assistência Colombo — iPhone, Seminovos e Loja Online</title>
+<title>Assistência Colombo — iPhone, Seminovos e Atendimento por I.A.</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GLD7DZ4ZL"></script>
@@ -15,7 +15,7 @@
   gtag('config', 'G-1GLD7DZ4ZL');
 </script>
 
-<meta name="description" content="Venda de iPhone novo e seminovo, Xiaomi, Samsung e Realme. Loja online com entrega em Colombo - PR e região.">
+<meta name="description" content="Assistência técnica e venda de smartphones em Colombo-PR. Orçamento instantâneo com nosso assistente virtual de I.A.">
 <meta name="theme-color" content="#000000">
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -52,6 +52,17 @@
     object-fit: contain;
     filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
   }
+  
+  /* Animações e Estilo da I.A. */
+  .ai-pulse {
+    box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7);
+    animation: pulse-blue 2s infinite;
+  }
+  @keyframes pulse-blue {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(41, 151, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); }
+  }
 </style>
 </head>
 
@@ -67,53 +78,92 @@
     </a>
 
     <div class="hidden md:flex items-center gap-6 text-[#A1A1A6] text-xs">
+      <a href="#ia-orcamento" class="hover:text-white transition text-[#2997FF] font-semibold flex items-center gap-1">
+        <i class="fa-solid fa-robot"></i> Orçamento por I.A.
+      </a>
       <a href="#produtos" class="hover:text-white transition">Produtos</a>
-      <a href="#assistencia" class="hover:text-white transition">Assistência</a>
       <a href="https://assistenciacolombo.com.br/checkout" class="hover:text-white transition">Finalizar Compra</a>
     </div>
 
-    <!-- Botão do Carrinho -->
-    <button id="cart-toggle-btn" class="relative bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-xs font-medium transition flex items-center gap-2">
-      <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i>
-      <span>Carrinho</span>
-      <span id="cart-count" class="bg-[#2997FF] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
-    </button>
+    <div class="flex items-center gap-3">
+      <!-- Botão do Carrinho -->
+      <button id="cart-toggle-btn" class="relative bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-full text-xs font-medium transition flex items-center gap-2">
+        <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i>
+        <span>Carrinho</span>
+        <span id="cart-count" class="bg-[#2997FF] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+      </button>
+    </div>
   </nav>
 </header>
 
-<!-- ============ OFERTA EM DESTAQUE ============ -->
-<section id="inicio" class="pt-24 pb-12 px-5 max-w-6xl mx-auto">
-  <div class="card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center bg-gradient-to-b from-zinc-900 to-black">
-    <div class="space-y-4">
-      <span class="text-xs font-semibold text-[#2997FF] tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Destaque da Loja</span>
-      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Realme P4 Power 5G</h1>
-      <p class="text-sm text-[#86868B]">256 GB, 8 GB RAM, Bateria Titan de 10.001 mAh e Carga Rápida de 80W.</p>
-      
-      <div class="text-2xl font-bold text-white">R$ 2.050,00 <span class="text-xs font-normal text-[#86868B]">à vista no Pix/Dinheiro</span></div>
-      
-      <div class="flex flex-wrap gap-3 pt-2">
-        <!-- Link PagBank Direto com rastreio Analytics -->
-        <a href="HTTPS://SEU-LINK-PAGBANK-REALMEP4.com" target="_blank" rel="noopener" onclick="trackConversion('Realme P4 Power 5G', 2050.00)"
-           class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
-          <i class="fa-solid fa-bolt"></i> Comprar Agora (PagBank)
-        </a>
+<!-- ============ BANNER PRINCIPAL COM I.A. INTERATIVA ============ -->
+<section class="pt-24 pb-8 px-5 max-w-6xl mx-auto">
+  <div class="card p-6 md:p-10 bg-gradient-to-r from-zinc-900 via-black to-blue-950/40 border-blue-500/30 relative overflow-hidden">
+    <div class="max-w-2xl space-y-4">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold text-[#2997FF] tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+        <i class="fa-solid fa-bolt"></i> Atendimento Inteligente 24/7
+      </span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+        Orçamento Instantâneo com Inteligência Artificial
+      </h1>
+      <p class="text-sm md:text-base text-[#86868B]">
+        Precisa consertar o seu celular, notebook ou consola? Escreva o problema abaixo ou abra o chat da I.A. para ter uma estimativa precisa e agendar o serviço.
+      </p>
 
-        <!-- Comprar no Checkout Oficial do Seu Domínio -->
-        <a href="https://assistenciacolombo.com.br/checkout?produto=Realme+P4+Power+5G&preco=2050.00" onclick="trackCheckout('Realme P4 Power 5G', 2050.00)"
-           class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
-          Finalizar em assistenciacolombo.com.br
+      <div class="pt-2 flex flex-wrap gap-3">
+        <button onclick="openAIChat('Olá! Gostaria de fazer um orçamento para o meu aparelho.')" 
+                class="ai-pulse bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-3.5 rounded-xl text-xs font-bold transition flex items-center gap-2">
+          <i class="fa-solid fa-robot text-base"></i> Iniciar Orçamento com I.A.
+        </button>
+        <a href="#produtos" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl text-xs font-semibold transition flex items-center gap-2">
+          Ver Aparelhos à Venda
         </a>
       </div>
-    </div>
-    <div class="stage h-64 md:h-80">
-      <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500&auto=format&fit=crop" alt="Realme P4 Power 5G">
     </div>
   </div>
 </section>
 
+<!-- ============ SEÇÃO INTERATIVA DE ORÇAMENTO COM I.A. ============ -->
+<section id="ia-orcamento" class="py-10 px-5 max-w-6xl mx-auto">
+  <div class="text-center max-w-xl mx-auto mb-8">
+    <h2 class="text-2xl font-bold text-white">O que aconteceu ao seu aparelho?</h2>
+    <p class="text-xs text-[#86868B] mt-1">Selecione uma opção rápida para a I.A. calcular a estimativa inicial do conserto:</p>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    <button onclick="openAIChat('Preciso trocar a tela do meu celular.')" 
+            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
+      <i class="fa-solid fa-mobile-screen-button text-3xl text-[#2997FF] mb-3 group-hover:scale-110 transition"></i>
+      <span class="text-xs font-semibold text-white">Tela Partida</span>
+      <span class="text-[10px] text-[#86868B] mt-1">Display ou Vidro</span>
+    </button>
+
+    <button onclick="openAIChat('Minha bateria está descarregando muito rápido.')" 
+            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
+      <i class="fa-solid fa-battery-quarter text-3xl text-amber-400 mb-3 group-hover:scale-110 transition"></i>
+      <span class="text-xs font-semibold text-white">Bateria Viciada</span>
+      <span class="text-[10px] text-[#86868B] mt-1">Troca de Bateria</span>
+    </button>
+
+    <button onclick="openAIChat('Meu aparelho caiu na água ou molhou.')" 
+            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
+      <i class="fa-solid fa-droplet text-3xl text-cyan-400 mb-3 group-hover:scale-110 transition"></i>
+      <span class="text-xs font-semibold text-white">Aparelho Molhou</span>
+      <span class="text-[10px] text-[#86868B] mt-1">Desoxidação / Placa</span>
+    </button>
+
+    <button onclick="openAIChat('O conector de carga não está carregando.')" 
+            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
+      <i class="fa-solid fa-plug text-3xl text-emerald-400 mb-3 group-hover:scale-110 transition"></i>
+      <span class="text-xs font-semibold text-white">Não Carrega</span>
+      <span class="text-[10px] text-[#86868B] mt-1">Conector de Carga</span>
+    </button>
+  </div>
+</section>
+
 <!-- ============ CATÁLOGO DE PRODUTOS ============ -->
-<section id="produtos" class="py-12 px-5 max-w-6xl mx-auto">
-  <h2 class="text-2xl font-bold text-white mb-6">Produtos Disponíveis</h2>
+<section id="produtos" class="py-12 px-5 max-w-6xl mx-auto border-t border-white/10">
+  <h2 class="text-2xl font-bold text-white mb-6">Aparelhos Novos e Seminovos</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -198,10 +248,58 @@
   </div>
 </section>
 
+<!-- ============ WIDGET DE CHAT DA INTELIGÊNCIA ARTIFICIAL (I.A.) ============ -->
+<!-- Botão Flutuante da I.A. -->
+<button id="ai-chat-btn" onclick="toggleAIChat()" 
+        class="fixed bottom-6 right-6 z-50 bg-[#2997FF] hover:bg-[#0077ED] text-white p-4 rounded-full shadow-2xl ai-pulse flex items-center justify-center gap-2 text-sm font-semibold transition">
+  <i class="fa-solid fa-robot text-xl"></i>
+  <span class="hidden sm:inline">Orçamento com I.A.</span>
+</button>
+
+<!-- Janela de Conversa da I.A. -->
+<div id="ai-chat-window" class="fixed bottom-20 right-4 sm:right-6 z-50 w-[92vw] sm:w-[380px] h-[500px] bg-[#161617] border border-white/15 rounded-3xl shadow-2xl hidden flex-col overflow-hidden">
+  
+  <!-- Cabeçalho do Chat -->
+  <div class="bg-zinc-900 px-5 py-4 border-b border-white/10 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-[#2997FF]/20 border border-[#2997FF]/40 flex items-center justify-center text-[#2997FF]">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold text-white">Assistente Colombo (I.A.)</h4>
+        <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online agora
+        </span>
+      </div>
+    </div>
+    <button onclick="toggleAIChat()" class="text-[#86868B] hover:text-white text-base p-1">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <!-- Corpo da Mensagem -->
+  <div id="ai-chat-body" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
+    <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5 space-y-2">
+      <p>Olá! Sou o assistente virtual da <strong>Assistência Colombo</strong>. 🤖</p>
+      <p>Qual é o modelo do seu aparelho e o problema dele? Eu calculo o valor aproximado para você agora mesmo!</p>
+    </div>
+  </div>
+
+  <!-- Entrada de Texto -->
+  <div class="p-3 bg-zinc-900 border-t border-white/10">
+    <form id="ai-form" onsubmit="handleAISubmit(event)" class="flex gap-2">
+      <input id="ai-input" type="text" placeholder="Ex: Quanto custa a tela do iPhone 11?" 
+             class="flex-1 bg-black border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-[#5A5A60] focus:border-[#2997FF] focus:outline-none">
+      <button type="submit" class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-4 rounded-xl text-xs font-semibold transition">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
 <!-- ============ PAINEL DO CARRINHO (DRAWER) ============ -->
 <div id="cart-drawer" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
   <div class="w-full max-w-md bg-[#161617] border-l border-white/10 h-full p-6 flex flex-col justify-between">
-    
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-white/10">
         <h3 class="text-lg font-bold text-white flex items-center gap-2">
@@ -228,32 +326,114 @@
         Ir para Finalizar Compra
       </a>
     </div>
-
   </div>
 </div>
 
-<!-- ============ SCRIPT DO CARRINHO E GOOGLE ANALYTICS ============ -->
+<!-- ============ LÓGICA DA INTELIGÊNCIA ARTIFICIAL E CARRINHO ============ -->
 <script>
 let cart = [];
 
-// Funções para Rastreamento do Google Analytics
+// Base de Dados da I.A. para resposta de orçamento imediato
+const aiKnowledgeBase = [
+  { keywords: ['iphone 11', 'tela'], price: 'R$ 280,00', desc: 'Troca de tela iPhone 11 com garantia de 3 meses.' },
+  { keywords: ['iphone 11', 'bateria'], price: 'R$ 190,00', desc: 'Troca de bateria iPhone 11 (Saúde 100%).' },
+  { keywords: ['iphone 12', 'tela'], price: 'R$ 390,00', desc: 'Troca de tela iPhone 12 / 12 Pro Premium.' },
+  { keywords: ['iphone 13', 'tela'], price: 'R$ 480,00', desc: 'Troca de tela iPhone 13 com brilho original.' },
+  { keywords: ['a14', 'tela'], price: 'R$ 190,00', desc: 'Troca de tela Samsung Galaxy A14.' },
+  { keywords: ['a54', 'tela'], price: 'R$ 320,00', desc: 'Troca de tela Samsung Galaxy A54 5G.' },
+  { keywords: ['conector', 'carga'], price: 'R$ 120,00 a R$ 150,00', desc: 'Troca do conector de carga (USB-C / Tipo C).' },
+  { keywords: ['molhou', 'agua'], price: 'R$ 150,00', desc: 'Serviço de banho químico e desoxidação de placa.' }
+];
+
+function toggleAIChat() {
+  const chatWin = document.getElementById('ai-chat-window');
+  chatWin.classList.toggle('hidden');
+  chatWin.classList.toggle('flex');
+}
+
+function openAIChat(initialText) {
+  const chatWin = document.getElementById('ai-chat-window');
+  if (chatWin.classList.contains('hidden')) {
+    toggleAIChat();
+  }
+  if (initialText) {
+    document.getElementById('ai-input').value = initialText;
+    handleAISubmit(new Event('submit'));
+  }
+}
+
+function handleAISubmit(e) {
+  e.preventDefault();
+  const inputEl = document.getElementById('ai-input');
+  const chatBody = document.getElementById('ai-chat-body');
+  const userText = inputEl.value.trim();
+
+  if (!userText) return;
+
+  // Adiciona a mensagem do usuário
+  chatBody.innerHTML += `
+    <div class="bg-[#2997FF] text-white p-3.5 rounded-2xl max-w-[85%] ml-auto rounded-tr-none font-medium">
+      ${userText}
+    </div>
+  `;
+
+  inputEl.value = '';
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  // Processa a resposta da I.A.
+  setTimeout(() => {
+    let aiResponse = getAIResponse(userText.toLowerCase());
+
+    chatBody.innerHTML += `
+      <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5 space-y-2">
+        ${aiResponse}
+      </div>
+    `;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 600);
+}
+
+function getAIResponse(text) {
+  // Procura correspondência na base de conhecimento
+  for (let item of aiKnowledgeBase) {
+    if (item.keywords.every(kw => text.includes(kw))) {
+      return `
+        <p>Encontrei o orçamento exato para o seu pedido: 🛠️</p>
+        <p class="font-bold text-white text-sm">${item.desc}</p>
+        <p class="text-[#2997FF] text-base font-extrabold">Estimativa: ${item.price}</p>
+        <div class="pt-2 flex flex-col gap-1.5">
+          <a href="https://wa.me/5541984027119?text=Olá!%20A%20I.A.%20me%20passou%20o%20orçamento%20de%20${encodeURIComponent(item.desc)}%20por%20${encodeURIComponent(item.price)}.%20Quero%20agendar!" 
+             target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-center py-2 rounded-xl font-bold transition">
+             <i class="fa-brands fa-whatsapp"></i> Agendar Reparo no WhatsApp
+          </a>
+        </div>
+      `;
+    }
+  }
+
+  // Resposta genérica inteligente caso o modelo não esteja pré-cadastrado
+  return `
+    <p>Com certeza conseguimos arranjar o seu aparelho! 🔧</p>
+    <p class="text-[#86868B]">Para eu lhe dar o valor exato da peça para este modelo especificamente, clique no botão abaixo para concluir o atendimento rápido pelo WhatsApp:</p>
+    <div class="pt-2">
+      <a href="https://wa.me/5541984027119?text=Olá!%20Gostaria%20de%20saber%20o%20valor%20do%20conserto%20para:%20${encodeURIComponent(text)}" 
+         target="_blank" class="bg-[#2997FF] hover:bg-[#0077ED] text-white text-center block py-2 rounded-xl font-bold transition">
+         <i class="fa-brands fa-whatsapp"></i> Confirmar Modelo no WhatsApp
+      </a>
+    </div>
+  `;
+}
+
+// Funções de Analytics e Carrinho
 function trackConversion(productName, price) {
   if (typeof gtag === 'function') {
-    gtag('event', 'begin_checkout', {
-      currency: 'BRL',
-      value: price,
-      items: [{ item_name: productName, price: price }]
-    });
+    gtag('event', 'begin_checkout', { currency: 'BRL', value: price, items: [{ item_name: productName, price: price }] });
   }
 }
 
 function trackCheckout(productName, price) {
   if (typeof gtag === 'function') {
-    gtag('event', 'begin_checkout', {
-      currency: 'BRL',
-      value: price,
-      items: [{ item_name: productName, price: price }]
-    });
+    gtag('event', 'begin_checkout', { currency: 'BRL', value: price, items: [{ item_name: productName, price: price }] });
   }
 }
 
@@ -266,11 +446,7 @@ function addToCart(title, price, pagbankUrl) {
   }
 
   if (typeof gtag === 'function') {
-    gtag('event', 'add_to_cart', {
-      currency: 'BRL',
-      value: price,
-      items: [{ item_name: title, price: price }]
-    });
+    gtag('event', 'add_to_cart', { currency: 'BRL', value: price, items: [{ item_name: title, price: price }] });
   }
 
   updateCartUI();
