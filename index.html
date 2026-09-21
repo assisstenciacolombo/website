@@ -1,115 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Assistência Colombo — Atendimento Inteligente</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GLD7DZ4ZL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1GLD7DZ4ZL');
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-  :root{ --bg:#000; --surface:#161617; --line:rgba(255,255,255,.1); --text:#F5F5F7; --blue:#2997FF; }
-  body{ font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
-  .card{ background:var(--surface); border:1px solid var(--line); border-radius:24px; }
-  .ai-pulse { animation: pulse-blue 2s infinite; }
-  @keyframes pulse-blue {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(41, 151, 255, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); }
-  }
-</style>
-</head>
-
-<body class="antialiased pb-20">
-
-<header class="fixed top-0 inset-x-0 z-40 bg-zinc-900/80 backdrop-blur-md border-b border-white/10">
-  <nav class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between text-sm">
-    <a href="/" class="flex items-center gap-2 text-white font-medium">
-      <i class="fa-solid fa-mobile-screen-button text-[#2997FF] text-xl"></i>
-      <span class="font-semibold">Assistência Colombo</span>
-    </a>
-    <button onclick="toggleAIChat()" class="bg-[#2997FF] text-white px-4 py-1.5 rounded-full text-xs font-semibold">
-      <i class="fa-solid fa-robot mr-1"></i> Atendimento I.A.
-    </button>
-  </nav>
-</header>
-
-<section class="pt-28 px-5 max-w-4xl mx-auto text-center space-y-4">
-  <h1 class="text-3xl md:text-5xl font-extrabold text-white">Orçamento com I.A. em Tempo Real</h1>
-  <p class="text-[#86868B] text-sm">Fale com nosso assistente virtual para consultar valores de trocas de tela, bateria, conectores e reparos em placa.</p>
-  <button onclick="toggleAIChat()" class="ai-pulse bg-[#2997FF] text-white px-8 py-3.5 rounded-xl text-xs font-bold">
-    Abrir Chat da Assistência
-  </button>
-</section>
-
-<!-- WIDGET DE CHAT I.A. REAL -->
-<div id="ai-chat-window" class="fixed bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[380px] h-[520px] bg-[#161617] border border-white/15 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-  
-  <div class="bg-zinc-900 px-5 py-4 border-b border-white/10 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-full bg-[#2997FF]/20 border border-[#2997FF]/40 flex items-center justify-center text-[#2997FF]">
-        <i class="fa-solid fa-robot"></i>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold text-white">I.A. Assistência Colombo</h4>
-        <span class="text-[10px] text-emerald-400">Online • Atendimento Automático</span>
-      </div>
-    </div>
-    <button onclick="toggleAIChat()" class="text-[#86868B] hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-
-  <div id="ai-chat-body" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
-    <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5">
-      Olá! Sou a I.A. da Assistência Colombo. 🤖<br><br>
-      Qual é o modelo do seu aparelho e o defeito dele? (Exemplo: "Quanto custa trocar a tela do iPhone 11?").
-    </div>
-  </div>
-
-  <div class="p-3 bg-zinc-900 border-t border-white/10">
-    <form onsubmit="handleAISubmit(event)" class="flex gap-2">
-      <input id="ai-input" type="text" placeholder="Digite sua dúvida aqui..." 
-             class="flex-1 bg-black border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-[#2997FF] focus:outline-none">
-      <button type="submit" id="ai-send-btn" class="bg-[#2997FF] text-white px-4 rounded-xl text-xs font-semibold">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </form>
-  </div>
-</div>
-
-<script>
-// Sua chave de API configurada
-const GEMINI_API_KEY = "AQ.Ab8RN6JEQvVIyIBMxIdPQXJrtsNKqPCF2wMBAgKjta2HVZXbAAAQ.Ab8RN6JEQvVIyIBMxIdPQXJrtsNKqPCF2wMBAgKjta2HVZXbAA";
-
-const SYSTEM_PROMPT = `Você é o assistente virtual da loja 'Assistência Colombo' em Colombo-PR.
-Sua função é atender clientes no site, tirar dúvidas sobre consertos de celulares, notebooks e games, e passar estimativas de preços.
-
-Tabela de preços base:
-- Troca de tela iPhone 11: R$ 280,00
-- Troca de tela iPhone 12/12 Pro: R$ 390,00
-- Troca de tela iPhone 13: R$ 480,00
-- Bateria iPhone 11/12: R$ 190,00 a R$ 240,00
-- Troca de tela Samsung A14/A52/A54: R$ 190,00 a R$ 320,00
-- Conector de carga Type-C: R$ 150,00
-- Limpeza e pasta térmica notebook/console: R$ 150,00
-- Aparelho molhado / Desoxidação: R$ 150,00
-
-Regras:
-1. Seja muito cordial, curto e direto.
-2. Se o cliente falar algo fora de contexto ou sem sentido (ex: "dfsdf", "s"), peça educadamente para ele informar o modelo do aparelho e o defeito.
-3. Se souber o preço aproximado, informe-o e convide o cliente a agendar pelo WhatsApp (41) 98402-7119.
-4. Mantenha as respostas curtas (máximo 3 frases).`;
-
 function toggleAIChat() {
   document.getElementById('ai-chat-window').classList.toggle('hidden');
 }
@@ -123,7 +12,6 @@ async function handleAISubmit(e) {
 
   if (!userText) return;
 
-  // Mensagem do Usuário
   chatBody.innerHTML += `
     <div class="bg-[#2997FF] text-white p-3.5 rounded-2xl max-w-[85%] ml-auto rounded-tr-none font-medium">
       ${userText}
@@ -132,7 +20,6 @@ async function handleAISubmit(e) {
   inputEl.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
 
-  // Indicador de "Digitando..."
   const loadingId = 'loading-' + Date.now();
   chatBody.innerHTML += `
     <div id="${loadingId}" class="bg-zinc-800 text-[#86868B] p-3 rounded-2xl max-w-[85%] rounded-tl-none italic">
@@ -143,17 +30,18 @@ async function handleAISubmit(e) {
   btn.disabled = true;
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [
-          { role: 'user', parts: [{ text: SYSTEM_PROMPT + "\n\nCliente perguntou: " + userText }] }
-        ]
-      })
+      body: JSON.stringify({ userText })
     });
 
     const data = await response.json();
+
+    if (data.error) {
+      throw new Error(data.error.message || 'Erro no servidor');
+    }
+
     let responseText = data.candidates[0].content.parts[0].text;
 
     document.getElementById(loadingId).remove();
@@ -168,6 +56,7 @@ async function handleAISubmit(e) {
       </div>
     `;
   } catch (error) {
+    console.error("Erro na requisição:", error);
     document.getElementById(loadingId).remove();
     chatBody.innerHTML += `
       <div class="bg-zinc-800 text-red-400 p-3 rounded-2xl max-w-[85%] rounded-tl-none">
@@ -180,6 +69,3 @@ async function handleAISubmit(e) {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 </script>
-
-</body>
-</html>
