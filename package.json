@@ -1,1 +1,7 @@
 
+{
+  "name": "assistencia-colombo",
+  "dependencies": {
+    "@google/generative-ai": "latest"
+  }
+}
