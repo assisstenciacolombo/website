@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Assistência Colombo — iPhone, Seminovos e Atendimento por I.A.</title>
+<title>Assistência Colombo — Atendimento Inteligente</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GLD7DZ4ZL"></script>
@@ -11,53 +11,18 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-1GLD7DZ4ZL');
 </script>
 
-<meta name="description" content="Assistência técnica e venda de smartphones em Colombo-PR. Orçamento instantâneo com nosso assistente virtual de I.A.">
-<meta name="theme-color" content="#000000">
-
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --bg:#000000;
-    --surface:#161617;
-    --line:rgba(255,255,255,.10);
-    --text:#F5F5F7;
-    --muted:#86868B;
-    --blue:#2997FF;
-  }
-  body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    background:var(--bg);color:var(--text);
-  }
-  .apple-glass{background:rgba(22,22,23,.85);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:24px;}
-  .card:hover{border-color:rgba(255,255,255,.22);}
-  .stage{
-    background:radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.07) 0%,rgba(0,0,0,0) 62%),#0A0A0B;
-    border-radius:20px;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .stage img{
-    max-height: 85%;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-  }
-  
-  /* Animações e Estilo da I.A. */
-  .ai-pulse {
-    box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7);
-    animation: pulse-blue 2s infinite;
-  }
+  :root{ --bg:#000; --surface:#161617; --line:rgba(255,255,255,.1); --text:#F5F5F7; --blue:#2997FF; }
+  body{ font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:24px; }
+  .ai-pulse { animation: pulse-blue 2s infinite; }
   @keyframes pulse-blue {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7); }
     70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(41, 151, 255, 0); }
@@ -66,448 +31,154 @@
 </style>
 </head>
 
-<body class="antialiased selection:bg-blue-600 selection:text-white pb-20">
+<body class="antialiased pb-20">
 
-<!-- ============ CABEÇALHO / NAVEGAÇÃO ============ -->
-<header class="fixed top-0 inset-x-0 z-40 apple-glass border-b border-white/10">
+<header class="fixed top-0 inset-x-0 z-40 bg-zinc-900/80 backdrop-blur-md border-b border-white/10">
   <nav class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between text-sm">
-
     <a href="/" class="flex items-center gap-2 text-white font-medium">
       <i class="fa-solid fa-mobile-screen-button text-[#2997FF] text-xl"></i>
-      <span class="tracking-tight font-semibold">Assistência Colombo</span>
+      <span class="font-semibold">Assistência Colombo</span>
     </a>
-
-    <div class="hidden md:flex items-center gap-6 text-[#A1A1A6] text-xs">
-      <a href="#ia-orcamento" class="hover:text-white transition text-[#2997FF] font-semibold flex items-center gap-1">
-        <i class="fa-solid fa-robot"></i> Orçamento por I.A.
-      </a>
-      <a href="#produtos" class="hover:text-white transition">Produtos</a>
-      <a href="https://assistenciacolombo.com.br/checkout" class="hover:text-white transition">Finalizar Compra</a>
-    </div>
-
-    <div class="flex items-center gap-3">
-      <!-- Botão do Carrinho -->
-      <button id="cart-toggle-btn" class="relative bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-full text-xs font-medium transition flex items-center gap-2">
-        <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i>
-        <span>Carrinho</span>
-        <span id="cart-count" class="bg-[#2997FF] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
-      </button>
-    </div>
+    <button onclick="toggleAIChat()" class="bg-[#2997FF] text-white px-4 py-1.5 rounded-full text-xs font-semibold">
+      <i class="fa-solid fa-robot mr-1"></i> Atendimento I.A.
+    </button>
   </nav>
 </header>
 
-<!-- ============ BANNER PRINCIPAL COM I.A. INTERATIVA ============ -->
-<section class="pt-24 pb-8 px-5 max-w-6xl mx-auto">
-  <div class="card p-6 md:p-10 bg-gradient-to-r from-zinc-900 via-black to-blue-950/40 border-blue-500/30 relative overflow-hidden">
-    <div class="max-w-2xl space-y-4">
-      <span class="inline-flex items-center gap-2 text-xs font-semibold text-[#2997FF] tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
-        <i class="fa-solid fa-bolt"></i> Atendimento Inteligente 24/7
-      </span>
-      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-        Orçamento Instantâneo com Inteligência Artificial
-      </h1>
-      <p class="text-sm md:text-base text-[#86868B]">
-        Precisa consertar o seu celular, notebook ou consola? Escreva o problema abaixo ou abra o chat da I.A. para ter uma estimativa precisa e agendar o serviço.
-      </p>
-
-      <div class="pt-2 flex flex-wrap gap-3">
-        <button onclick="openAIChat('Olá! Gostaria de fazer um orçamento para o meu aparelho.')" 
-                class="ai-pulse bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-3.5 rounded-xl text-xs font-bold transition flex items-center gap-2">
-          <i class="fa-solid fa-robot text-base"></i> Iniciar Orçamento com I.A.
-        </button>
-        <a href="#produtos" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl text-xs font-semibold transition flex items-center gap-2">
-          Ver Aparelhos à Venda
-        </a>
-      </div>
-    </div>
-  </div>
+<section class="pt-28 px-5 max-w-4xl mx-auto text-center space-y-4">
+  <h1 class="text-3xl md:text-5xl font-extrabold text-white">Orçamento com I.A. em Tempo Real</h1>
+  <p class="text-[#86868B] text-sm">Fale com nosso assistente virtual para consultar valores de trocas de tela, bateria, conectores e reparos em placa.</p>
+  <button onclick="toggleAIChat()" class="ai-pulse bg-[#2997FF] text-white px-8 py-3.5 rounded-xl text-xs font-bold">
+    Abrir Chat da Assistência
+  </button>
 </section>
 
-<!-- ============ SEÇÃO INTERATIVA DE ORÇAMENTO COM I.A. ============ -->
-<section id="ia-orcamento" class="py-10 px-5 max-w-6xl mx-auto">
-  <div class="text-center max-w-xl mx-auto mb-8">
-    <h2 class="text-2xl font-bold text-white">O que aconteceu ao seu aparelho?</h2>
-    <p class="text-xs text-[#86868B] mt-1">Selecione uma opção rápida para a I.A. calcular a estimativa inicial do conserto:</p>
-  </div>
-
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-    <button onclick="openAIChat('Preciso trocar a tela do meu celular.')" 
-            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
-      <i class="fa-solid fa-mobile-screen-button text-3xl text-[#2997FF] mb-3 group-hover:scale-110 transition"></i>
-      <span class="text-xs font-semibold text-white">Tela Partida</span>
-      <span class="text-[10px] text-[#86868B] mt-1">Display ou Vidro</span>
-    </button>
-
-    <button onclick="openAIChat('Minha bateria está descarregando muito rápido.')" 
-            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
-      <i class="fa-solid fa-battery-quarter text-3xl text-amber-400 mb-3 group-hover:scale-110 transition"></i>
-      <span class="text-xs font-semibold text-white">Bateria Viciada</span>
-      <span class="text-[10px] text-[#86868B] mt-1">Troca de Bateria</span>
-    </button>
-
-    <button onclick="openAIChat('Meu aparelho caiu na água ou molhou.')" 
-            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
-      <i class="fa-solid fa-droplet text-3xl text-cyan-400 mb-3 group-hover:scale-110 transition"></i>
-      <span class="text-xs font-semibold text-white">Aparelho Molhou</span>
-      <span class="text-[10px] text-[#86868B] mt-1">Desoxidação / Placa</span>
-    </button>
-
-    <button onclick="openAIChat('O conector de carga não está carregando.')" 
-            class="card p-5 text-center hover:border-[#2997FF] transition group flex flex-col items-center">
-      <i class="fa-solid fa-plug text-3xl text-emerald-400 mb-3 group-hover:scale-110 transition"></i>
-      <span class="text-xs font-semibold text-white">Não Carrega</span>
-      <span class="text-[10px] text-[#86868B] mt-1">Conector de Carga</span>
-    </button>
-  </div>
-</section>
-
-<!-- ============ CATÁLOGO DE PRODUTOS ============ -->
-<section id="produtos" class="py-12 px-5 max-w-6xl mx-auto border-t border-white/10">
-  <h2 class="text-2xl font-bold text-white mb-6">Aparelhos Novos e Seminovos</h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-    <!-- Produto 1 -->
-    <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-52 mb-4">
-        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500&auto=format&fit=crop" alt="iPhone 18 Pro Max">
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">iPhone 18 Pro Max 512GB</h3>
-        <p class="text-xs text-[#86868B] mt-1">Novo, lacrado, garantia de fábrica.</p>
-        <p class="text-xl font-bold text-white mt-3">R$ 13.199,00</p>
-      </div>
-      <div class="mt-5 space-y-2">
-        <a href="HTTPS://SEU-LINK-PAGBANK-IPHONE18.com" target="_blank" rel="noopener" onclick="trackConversion('iPhone 18 Pro Max 512GB', 13199.00)"
-           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
-          Pagar com PagBank
-        </a>
-        <a href="https://assistenciacolombo.com.br/checkout?produto=iPhone+18+Pro+Max+512GB&preco=13199.00" onclick="trackCheckout('iPhone 18 Pro Max 512GB', 13199.00)"
-           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
-          Finalizar Compra
-        </a>
-        <button onclick="addToCart('iPhone 18 Pro Max 512GB', 13199.00, 'HTTPS://SEU-LINK-PAGBANK-IPHONE18.com')" 
-                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
-          + Adicionar ao Carrinho
-        </button>
-      </div>
-    </article>
-
-    <!-- Produto 2 -->
-    <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-52 mb-4">
-        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop" alt="Galaxy A52 5G">
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">Galaxy A52 5G 128GB</h3>
-        <p class="text-xs text-[#86868B] mt-1">Seminovo revisado com garantia da loja.</p>
-        <p class="text-xl font-bold text-white mt-3">R$ 699,00</p>
-      </div>
-      <div class="mt-5 space-y-2">
-        <a href="HTTPS://SEU-LINK-PAGBANK-A52.com" target="_blank" rel="noopener" onclick="trackConversion('Galaxy A52 5G 128GB', 699.00)"
-           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
-          Pagar com PagBank
-        </a>
-        <a href="https://assistenciacolombo.com.br/checkout?produto=Galaxy+A52+5G+128GB&preco=699.00" onclick="trackCheckout('Galaxy A52 5G 128GB', 699.00)"
-           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
-          Finalizar Compra
-        </a>
-        <button onclick="addToCart('Galaxy A52 5G 128GB', 699.00, 'HTTPS://SEU-LINK-PAGBANK-A52.com')" 
-                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
-          + Adicionar ao Carrinho
-        </button>
-      </div>
-    </article>
-
-    <!-- Produto 3 -->
-    <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-52 mb-4">
-        <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=500&auto=format&fit=crop" alt="Redmi 15C">
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">Redmi 15C 128GB</h3>
-        <p class="text-xs text-[#86868B] mt-1">Smartphone Xiaomi novo com pronta-entrega.</p>
-        <p class="text-xl font-bold text-white mt-3">R$ 859,00</p>
-      </div>
-      <div class="mt-5 space-y-2">
-        <a href="HTTPS://SEU-LINK-PAGBANK-REDMI15C.com" target="_blank" rel="noopener" onclick="trackConversion('Redmi 15C 128GB', 859.00)"
-           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
-          Pagar com PagBank
-        </a>
-        <a href="https://assistenciacolombo.com.br/checkout?produto=Redmi+15C+128GB&preco=859.00" onclick="trackCheckout('Redmi 15C 128GB', 859.00)"
-           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
-          Finalizar Compra
-        </a>
-        <button onclick="addToCart('Redmi 15C 128GB', 859.00, 'HTTPS://SEU-LINK-PAGBANK-REDMI15C.com')" 
-                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
-          + Adicionar ao Carrinho
-        </button>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ============ WIDGET DE CHAT DA INTELIGÊNCIA ARTIFICIAL (I.A.) ============ -->
-<!-- Botão Flutuante da I.A. -->
-<button id="ai-chat-btn" onclick="toggleAIChat()" 
-        class="fixed bottom-6 right-6 z-50 bg-[#2997FF] hover:bg-[#0077ED] text-white p-4 rounded-full shadow-2xl ai-pulse flex items-center justify-center gap-2 text-sm font-semibold transition">
-  <i class="fa-solid fa-robot text-xl"></i>
-  <span class="hidden sm:inline">Orçamento com I.A.</span>
-</button>
-
-<!-- Janela de Conversa da I.A. -->
-<div id="ai-chat-window" class="fixed bottom-20 right-4 sm:right-6 z-50 w-[92vw] sm:w-[380px] h-[500px] bg-[#161617] border border-white/15 rounded-3xl shadow-2xl hidden flex-col overflow-hidden">
+<!-- WIDGET DE CHAT I.A. REAL -->
+<div id="ai-chat-window" class="fixed bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[380px] h-[520px] bg-[#161617] border border-white/15 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
   
-  <!-- Cabeçalho do Chat -->
   <div class="bg-zinc-900 px-5 py-4 border-b border-white/10 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-full bg-[#2997FF]/20 border border-[#2997FF]/40 flex items-center justify-center text-[#2997FF]">
+      <div class="w-8 h-8 rounded-full bg-[#2997FF]/20 border border-[#2997FF]/40 flex items-center justify-center text-[#2997FF]">
         <i class="fa-solid fa-robot"></i>
       </div>
       <div>
-        <h4 class="text-xs font-bold text-white">Assistente Colombo (I.A.)</h4>
-        <span class="text-[10px] text-emerald-400 flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online agora
-        </span>
+        <h4 class="text-xs font-bold text-white">I.A. Assistência Colombo</h4>
+        <span class="text-[10px] text-emerald-400">Online • Atendimento Automático</span>
       </div>
     </div>
-    <button onclick="toggleAIChat()" class="text-[#86868B] hover:text-white text-base p-1">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+    <button onclick="toggleAIChat()" class="text-[#86868B] hover:text-white"><i class="fa-solid fa-xmark"></i></button>
   </div>
 
-  <!-- Corpo da Mensagem -->
   <div id="ai-chat-body" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
-    <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5 space-y-2">
-      <p>Olá! Sou o assistente virtual da <strong>Assistência Colombo</strong>. 🤖</p>
-      <p>Qual é o modelo do seu aparelho e o problema dele? Eu calculo o valor aproximado para você agora mesmo!</p>
+    <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5">
+      Olá! Sou a I.A. da Assistência Colombo. 🤖<br><br>
+      Qual é o modelo do seu aparelho e o defeito dele? (Exemplo: "Quanto custa trocar a tela do iPhone 11?").
     </div>
   </div>
 
-  <!-- Entrada de Texto -->
   <div class="p-3 bg-zinc-900 border-t border-white/10">
-    <form id="ai-form" onsubmit="handleAISubmit(event)" class="flex gap-2">
-      <input id="ai-input" type="text" placeholder="Ex: Quanto custa a tela do iPhone 11?" 
-             class="flex-1 bg-black border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-[#5A5A60] focus:border-[#2997FF] focus:outline-none">
-      <button type="submit" class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-4 rounded-xl text-xs font-semibold transition">
+    <form onsubmit="handleAISubmit(event)" class="flex gap-2">
+      <input id="ai-input" type="text" placeholder="Digite sua dúvida aqui..." 
+             class="flex-1 bg-black border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-[#2997FF] focus:outline-none">
+      <button type="submit" id="ai-send-btn" class="bg-[#2997FF] text-white px-4 rounded-xl text-xs font-semibold">
         <i class="fa-solid fa-paper-plane"></i>
       </button>
     </form>
   </div>
 </div>
 
-<!-- ============ PAINEL DO CARRINHO (DRAWER) ============ -->
-<div id="cart-drawer" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
-  <div class="w-full max-w-md bg-[#161617] border-l border-white/10 h-full p-6 flex flex-col justify-between">
-    <div>
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-cart-shopping text-[#2997FF]"></i> Seu Carrinho
-        </h3>
-        <button id="cart-close-btn" class="text-xs text-[#86868B] hover:text-white p-2">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <div id="cart-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
-        <p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>
-      </div>
-    </div>
-
-    <div class="pt-4 border-t border-white/10 space-y-4">
-      <div class="flex justify-between items-center text-sm font-semibold text-white">
-        <span>Total:</span>
-        <span id="cart-total" class="text-lg text-[#2997FF]">R$ 0,00</span>
-      </div>
-
-      <a id="checkout-cart-link" href="https://assistenciacolombo.com.br/checkout" 
-         class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-3 rounded-xl text-xs font-semibold text-center block transition">
-        Ir para Finalizar Compra
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- ============ LÓGICA DA INTELIGÊNCIA ARTIFICIAL E CARRINHO ============ -->
 <script>
-let cart = [];
+// Sua chave de API configurada
+const GEMINI_API_KEY = "AQ.Ab8RN6JEQvVIyIBMxIdPQXJrtsNKqPCF2wMBAgKjta2HVZXbAAAQ.Ab8RN6JEQvVIyIBMxIdPQXJrtsNKqPCF2wMBAgKjta2HVZXbAA";
 
-// Base de Dados da I.A. para resposta de orçamento imediato
-const aiKnowledgeBase = [
-  { keywords: ['iphone 11', 'tela'], price: 'R$ 280,00', desc: 'Troca de tela iPhone 11 com garantia de 3 meses.' },
-  { keywords: ['iphone 11', 'bateria'], price: 'R$ 190,00', desc: 'Troca de bateria iPhone 11 (Saúde 100%).' },
-  { keywords: ['iphone 12', 'tela'], price: 'R$ 390,00', desc: 'Troca de tela iPhone 12 / 12 Pro Premium.' },
-  { keywords: ['iphone 13', 'tela'], price: 'R$ 480,00', desc: 'Troca de tela iPhone 13 com brilho original.' },
-  { keywords: ['a14', 'tela'], price: 'R$ 190,00', desc: 'Troca de tela Samsung Galaxy A14.' },
-  { keywords: ['a54', 'tela'], price: 'R$ 320,00', desc: 'Troca de tela Samsung Galaxy A54 5G.' },
-  { keywords: ['conector', 'carga'], price: 'R$ 120,00 a R$ 150,00', desc: 'Troca do conector de carga (USB-C / Tipo C).' },
-  { keywords: ['molhou', 'agua'], price: 'R$ 150,00', desc: 'Serviço de banho químico e desoxidação de placa.' }
-];
+const SYSTEM_PROMPT = `Você é o assistente virtual da loja 'Assistência Colombo' em Colombo-PR.
+Sua função é atender clientes no site, tirar dúvidas sobre consertos de celulares, notebooks e games, e passar estimativas de preços.
+
+Tabela de preços base:
+- Troca de tela iPhone 11: R$ 280,00
+- Troca de tela iPhone 12/12 Pro: R$ 390,00
+- Troca de tela iPhone 13: R$ 480,00
+- Bateria iPhone 11/12: R$ 190,00 a R$ 240,00
+- Troca de tela Samsung A14/A52/A54: R$ 190,00 a R$ 320,00
+- Conector de carga Type-C: R$ 150,00
+- Limpeza e pasta térmica notebook/console: R$ 150,00
+- Aparelho molhado / Desoxidação: R$ 150,00
+
+Regras:
+1. Seja muito cordial, curto e direto.
+2. Se o cliente falar algo fora de contexto ou sem sentido (ex: "dfsdf", "s"), peça educadamente para ele informar o modelo do aparelho e o defeito.
+3. Se souber o preço aproximado, informe-o e convide o cliente a agendar pelo WhatsApp (41) 98402-7119.
+4. Mantenha as respostas curtas (máximo 3 frases).`;
 
 function toggleAIChat() {
-  const chatWin = document.getElementById('ai-chat-window');
-  chatWin.classList.toggle('hidden');
-  chatWin.classList.toggle('flex');
+  document.getElementById('ai-chat-window').classList.toggle('hidden');
 }
 
-function openAIChat(initialText) {
-  const chatWin = document.getElementById('ai-chat-window');
-  if (chatWin.classList.contains('hidden')) {
-    toggleAIChat();
-  }
-  if (initialText) {
-    document.getElementById('ai-input').value = initialText;
-    handleAISubmit(new Event('submit'));
-  }
-}
-
-function handleAISubmit(e) {
+async function handleAISubmit(e) {
   e.preventDefault();
   const inputEl = document.getElementById('ai-input');
   const chatBody = document.getElementById('ai-chat-body');
+  const btn = document.getElementById('ai-send-btn');
   const userText = inputEl.value.trim();
 
   if (!userText) return;
 
-  // Adiciona a mensagem do usuário
+  // Mensagem do Usuário
   chatBody.innerHTML += `
     <div class="bg-[#2997FF] text-white p-3.5 rounded-2xl max-w-[85%] ml-auto rounded-tr-none font-medium">
       ${userText}
     </div>
   `;
-
   inputEl.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
 
-  // Processa a resposta da I.A.
-  setTimeout(() => {
-    let aiResponse = getAIResponse(userText.toLowerCase());
+  // Indicador de "Digitando..."
+  const loadingId = 'loading-' + Date.now();
+  chatBody.innerHTML += `
+    <div id="${loadingId}" class="bg-zinc-800 text-[#86868B] p-3 rounded-2xl max-w-[85%] rounded-tl-none italic">
+      I.A. está analisando...
+    </div>
+  `;
+  chatBody.scrollTop = chatBody.scrollHeight;
+  btn.disabled = true;
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          { role: 'user', parts: [{ text: SYSTEM_PROMPT + "\n\nCliente perguntou: " + userText }] }
+        ]
+      })
+    });
+
+    const data = await response.json();
+    let responseText = data.candidates[0].content.parts[0].text;
+
+    document.getElementById(loadingId).remove();
 
     chatBody.innerHTML += `
       <div class="bg-zinc-800 text-white p-3.5 rounded-2xl max-w-[85%] rounded-tl-none border border-white/5 space-y-2">
-        ${aiResponse}
+        <p>${responseText.replace(/\n/g, '<br>')}</p>
+        <a href="https://wa.me/5541984027119?text=${encodeURIComponent('Olá! Estava no site e quero confirmar o orçamento: ' + userText)}" 
+           target="_blank" class="block text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl mt-2 transition">
+           <i class="fa-brands fa-whatsapp"></i> Finalizar no WhatsApp
+        </a>
       </div>
     `;
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }, 600);
-}
-
-function getAIResponse(text) {
-  // Procura correspondência na base de conhecimento
-  for (let item of aiKnowledgeBase) {
-    if (item.keywords.every(kw => text.includes(kw))) {
-      return `
-        <p>Encontrei o orçamento exato para o seu pedido: 🛠️</p>
-        <p class="font-bold text-white text-sm">${item.desc}</p>
-        <p class="text-[#2997FF] text-base font-extrabold">Estimativa: ${item.price}</p>
-        <div class="pt-2 flex flex-col gap-1.5">
-          <a href="https://wa.me/5541984027119?text=Olá!%20A%20I.A.%20me%20passou%20o%20orçamento%20de%20${encodeURIComponent(item.desc)}%20por%20${encodeURIComponent(item.price)}.%20Quero%20agendar!" 
-             target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-center py-2 rounded-xl font-bold transition">
-             <i class="fa-brands fa-whatsapp"></i> Agendar Reparo no WhatsApp
-          </a>
-        </div>
-      `;
-    }
+  } catch (error) {
+    document.getElementById(loadingId).remove();
+    chatBody.innerHTML += `
+      <div class="bg-zinc-800 text-red-400 p-3 rounded-2xl max-w-[85%] rounded-tl-none">
+        Ops, tive um problema ao conectar com a I.A. Tente novamente ou chame diretamente no WhatsApp (41) 98402-7119.
+      </div>
+    `;
   }
 
-  // Resposta genérica inteligente caso o modelo não esteja pré-cadastrado
-  return `
-    <p>Com certeza conseguimos arranjar o seu aparelho! 🔧</p>
-    <p class="text-[#86868B]">Para eu lhe dar o valor exato da peça para este modelo especificamente, clique no botão abaixo para concluir o atendimento rápido pelo WhatsApp:</p>
-    <div class="pt-2">
-      <a href="https://wa.me/5541984027119?text=Olá!%20Gostaria%20de%20saber%20o%20valor%20do%20conserto%20para:%20${encodeURIComponent(text)}" 
-         target="_blank" class="bg-[#2997FF] hover:bg-[#0077ED] text-white text-center block py-2 rounded-xl font-bold transition">
-         <i class="fa-brands fa-whatsapp"></i> Confirmar Modelo no WhatsApp
-      </a>
-    </div>
-  `;
+  btn.disabled = false;
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
-
-// Funções de Analytics e Carrinho
-function trackConversion(productName, price) {
-  if (typeof gtag === 'function') {
-    gtag('event', 'begin_checkout', { currency: 'BRL', value: price, items: [{ item_name: productName, price: price }] });
-  }
-}
-
-function trackCheckout(productName, price) {
-  if (typeof gtag === 'function') {
-    gtag('event', 'begin_checkout', { currency: 'BRL', value: price, items: [{ item_name: productName, price: price }] });
-  }
-}
-
-function addToCart(title, price, pagbankUrl) {
-  const existing = cart.find(item => item.title === title);
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ title, price, pagbankUrl, qty: 1 });
-  }
-
-  if (typeof gtag === 'function') {
-    gtag('event', 'add_to_cart', { currency: 'BRL', value: price, items: [{ item_name: title, price: price }] });
-  }
-
-  updateCartUI();
-  openCart();
-}
-
-function removeFromCart(title) {
-  cart = cart.filter(item => item.title !== title);
-  updateCartUI();
-}
-
-function updateCartUI() {
-  const cartItemsContainer = document.getElementById('cart-items');
-  const cartCountEl = document.getElementById('cart-count');
-  const cartTotalEl = document.getElementById('cart-total');
-  const checkoutCartLink = document.getElementById('checkout-cart-link');
-
-  let total = 0;
-  let totalItems = 0;
-
-  cartItemsContainer.innerHTML = '';
-
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>';
-    checkoutCartLink.href = "https://assistenciacolombo.com.br/checkout";
-  } else {
-    cart.forEach(item => {
-      const itemSubtotal = item.price * item.qty;
-      total += itemSubtotal;
-      totalItems += item.qty;
-
-      cartItemsContainer.innerHTML += `
-        <div class="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
-          <div>
-            <p class="font-medium text-white">${item.title}</p>
-            <p class="text-[#86868B]">${item.qty}x R$ ${item.price.toFixed(2)}</p>
-          </div>
-          <button onclick="removeFromCart('${item.title}')" class="text-red-400 hover:text-red-300">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      `;
-    });
-
-    checkoutCartLink.href = `https://assistenciacolombo.com.br/checkout?total=${total.toFixed(2)}&itens=${totalItems}`;
-  }
-
-  cartCountEl.textContent = totalItems;
-  cartTotalEl.textContent = `R$ ${total.toFixed(2)}`;
-}
-
-function openCart() {
-  document.getElementById('cart-drawer').classList.remove('hidden');
-}
-
-function closeCart() {
-  document.getElementById('cart-drawer').classList.add('hidden');
-}
-
-document.getElementById('cart-toggle-btn').addEventListener('click', openCart);
-document.getElementById('cart-close-btn').addEventListener('click', closeCart);
 </script>
 
 </body>
