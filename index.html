@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Assistência Colombo — iPhone, Seminovos e Loja Online</title>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GLD7DZ4ZL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1GLD7DZ4ZL');
+</script>
+
 <meta name="description" content="Venda de iPhone novo e seminovo, Xiaomi, Samsung e Realme. Loja online com entrega em Colombo - PR e região.">
 <meta name="theme-color" content="#000000">
 
@@ -36,6 +46,12 @@
     display:flex;align-items:center;justify-content:center;
     overflow:hidden;
   }
+  .stage img{
+    max-height: 85%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+  }
 </style>
 </head>
 
@@ -45,7 +61,7 @@
 <header class="fixed top-0 inset-x-0 z-40 apple-glass border-b border-white/10">
   <nav class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between text-sm">
 
-    <a href="#inicio" class="flex items-center gap-2 text-white font-medium">
+    <a href="/" class="flex items-center gap-2 text-white font-medium">
       <i class="fa-solid fa-mobile-screen-button text-[#2997FF] text-xl"></i>
       <span class="tracking-tight font-semibold">Assistência Colombo</span>
     </a>
@@ -53,7 +69,7 @@
     <div class="hidden md:flex items-center gap-6 text-[#A1A1A6] text-xs">
       <a href="#produtos" class="hover:text-white transition">Produtos</a>
       <a href="#assistencia" class="hover:text-white transition">Assistência</a>
-      <a href="#checkout" class="hover:text-white transition">Finalizar Compra</a>
+      <a href="https://assistenciacolombo.com.br/checkout" class="hover:text-white transition">Finalizar Compra</a>
     </div>
 
     <!-- Botão do Carrinho -->
@@ -76,24 +92,26 @@
       <div class="text-2xl font-bold text-white">R$ 2.050,00 <span class="text-xs font-normal text-[#86868B]">à vista no Pix/Dinheiro</span></div>
       
       <div class="flex flex-wrap gap-3 pt-2">
-        <!-- Link direto PagBank -->
-        <a href="https://pagseguro.uol.com.br" target="_blank" rel="noopener" 
+        <!-- Link PagBank Direto com rastreio Analytics -->
+        <a href="HTTPS://SEU-LINK-PAGBANK-REALMEP4.com" target="_blank" rel="noopener" onclick="trackConversion('Realme P4 Power 5G', 2050.00)"
            class="bg-[#2997FF] hover:bg-[#0077ED] text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
           <i class="fa-solid fa-bolt"></i> Comprar Agora (PagBank)
         </a>
-        <button onclick="addToCart('Realme P4 Power 5G', 2050.00, 'https://pagseguro.uol.com.br')" 
-                class="border border-white/20 hover:bg-white/10 text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
-          <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-        </button>
+
+        <!-- Comprar no Checkout Oficial do Seu Domínio -->
+        <a href="https://assistenciacolombo.com.br/checkout?produto=Realme+P4+Power+5G&preco=2050.00" onclick="trackCheckout('Realme P4 Power 5G', 2050.00)"
+           class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl text-xs font-semibold transition flex items-center gap-2">
+          Finalizar em assistenciacolombo.com.br
+        </a>
       </div>
     </div>
     <div class="stage h-64 md:h-80">
-      <i class="fa-solid fa-mobile-screen text-7xl text-[#2997FF]"></i>
+      <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500&auto=format&fit=crop" alt="Realme P4 Power 5G">
     </div>
   </div>
 </section>
 
-<!-- ============ CATALOGO DE PRODUOS ============ -->
+<!-- ============ CATÁLOGO DE PRODUTOS ============ -->
 <section id="produtos" class="py-12 px-5 max-w-6xl mx-auto">
   <h2 class="text-2xl font-bold text-white mb-6">Produtos Disponíveis</h2>
 
@@ -101,8 +119,8 @@
 
     <!-- Produto 1 -->
     <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-48 mb-4">
-        <i class="fa-brands fa-apple text-5xl text-white"></i>
+      <div class="stage h-52 mb-4">
+        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500&auto=format&fit=crop" alt="iPhone 18 Pro Max">
       </div>
       <div>
         <h3 class="text-lg font-semibold text-white">iPhone 18 Pro Max 512GB</h3>
@@ -110,22 +128,25 @@
         <p class="text-xl font-bold text-white mt-3">R$ 13.199,00</p>
       </div>
       <div class="mt-5 space-y-2">
-        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
-        <a href="HTTPS://SEU-LINK-PAGBANK-IPHONE18.com" target="_blank" rel="noopener" 
+        <a href="HTTPS://SEU-LINK-PAGBANK-IPHONE18.com" target="_blank" rel="noopener" onclick="trackConversion('iPhone 18 Pro Max 512GB', 13199.00)"
            class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
-          <i class="fa-solid fa-[#2997FF]"></i> Pagar com PagBank
+          Pagar com PagBank
+        </a>
+        <a href="https://assistenciacolombo.com.br/checkout?produto=iPhone+18+Pro+Max+512GB&preco=13199.00" onclick="trackCheckout('iPhone 18 Pro Max 512GB', 13199.00)"
+           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
+          Finalizar Compra
         </a>
         <button onclick="addToCart('iPhone 18 Pro Max 512GB', 13199.00, 'HTTPS://SEU-LINK-PAGBANK-IPHONE18.com')" 
-                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
-          Adicionar ao Carrinho
+                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
+          + Adicionar ao Carrinho
         </button>
       </div>
     </article>
 
     <!-- Produto 2 -->
     <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-48 mb-4">
-        <i class="fa-solid fa-mobile-button text-5xl text-emerald-400"></i>
+      <div class="stage h-52 mb-4">
+        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop" alt="Galaxy A52 5G">
       </div>
       <div>
         <h3 class="text-lg font-semibold text-white">Galaxy A52 5G 128GB</h3>
@@ -133,22 +154,25 @@
         <p class="text-xl font-bold text-white mt-3">R$ 699,00</p>
       </div>
       <div class="mt-5 space-y-2">
-        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
-        <a href="HTTPS://SEU-LINK-PAGBANK-A52.com" target="_blank" rel="noopener" 
+        <a href="HTTPS://SEU-LINK-PAGBANK-A52.com" target="_blank" rel="noopener" onclick="trackConversion('Galaxy A52 5G 128GB', 699.00)"
            class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
           Pagar com PagBank
         </a>
+        <a href="https://assistenciacolombo.com.br/checkout?produto=Galaxy+A52+5G+128GB&preco=699.00" onclick="trackCheckout('Galaxy A52 5G 128GB', 699.00)"
+           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
+          Finalizar Compra
+        </a>
         <button onclick="addToCart('Galaxy A52 5G 128GB', 699.00, 'HTTPS://SEU-LINK-PAGBANK-A52.com')" 
-                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
-          Adicionar ao Carrinho
+                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
+          + Adicionar ao Carrinho
         </button>
       </div>
     </article>
 
     <!-- Produto 3 -->
     <article class="card p-5 flex flex-col justify-between">
-      <div class="stage h-48 mb-4">
-        <i class="fa-solid fa-mobile text-5xl text-orange-400"></i>
+      <div class="stage h-52 mb-4">
+        <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=500&auto=format&fit=crop" alt="Redmi 15C">
       </div>
       <div>
         <h3 class="text-lg font-semibold text-white">Redmi 15C 128GB</h3>
@@ -156,14 +180,17 @@
         <p class="text-xl font-bold text-white mt-3">R$ 859,00</p>
       </div>
       <div class="mt-5 space-y-2">
-        <!-- COLOQUE O SEU LINK PAGBANK AQUI NO HREF -->
-        <a href="HTTPS://SEU-LINK-PAGBANK-REDMI15C.com" target="_blank" rel="noopener" 
+        <a href="HTTPS://SEU-LINK-PAGBANK-REDMI15C.com" target="_blank" rel="noopener" onclick="trackConversion('Redmi 15C 128GB', 859.00)"
            class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
           Pagar com PagBank
         </a>
+        <a href="https://assistenciacolombo.com.br/checkout?produto=Redmi+15C+128GB&preco=859.00" onclick="trackCheckout('Redmi 15C 128GB', 859.00)"
+           class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition text-center block">
+          Finalizar Compra
+        </a>
         <button onclick="addToCart('Redmi 15C 128GB', 859.00, 'HTTPS://SEU-LINK-PAGBANK-REDMI15C.com')" 
-                class="w-full bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-xl text-xs font-medium transition">
-          Adicionar ao Carrinho
+                class="w-full text-xs text-[#86868B] hover:text-white py-1 transition text-center block">
+          + Adicionar ao Carrinho
         </button>
       </div>
     </article>
@@ -171,7 +198,7 @@
   </div>
 </section>
 
-<!-- ============ PAINEL DO CARRINHO (DRAWER SLIDE-OVER) ============ -->
+<!-- ============ PAINEL DO CARRINHO (DRAWER) ============ -->
 <div id="cart-drawer" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
   <div class="w-full max-w-md bg-[#161617] border-l border-white/10 h-full p-6 flex flex-col justify-between">
     
@@ -185,20 +212,18 @@
         </button>
       </div>
 
-      <!-- Lista de itens do carrinho -->
       <div id="cart-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
         <p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>
       </div>
     </div>
 
-    <!-- Totalizador e Checkout -->
     <div class="pt-4 border-t border-white/10 space-y-4">
       <div class="flex justify-between items-center text-sm font-semibold text-white">
         <span>Total:</span>
         <span id="cart-total" class="text-lg text-[#2997FF]">R$ 0,00</span>
       </div>
 
-      <a href="#checkout" onclick="closeCart()" 
+      <a id="checkout-cart-link" href="https://assistenciacolombo.com.br/checkout" 
          class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-3 rounded-xl text-xs font-semibold text-center block transition">
         Ir para Finalizar Compra
       </a>
@@ -207,49 +232,30 @@
   </div>
 </div>
 
-<!-- ============ PÁGINA DE CHECKOUT / FINALIZAÇÃO ============ -->
-<section id="checkout" class="py-16 px-5 max-w-4xl mx-auto border-t border-white/10">
-  <div class="mb-8">
-    <h2 class="text-3xl font-extrabold text-white tracking-tight">Finalizar Compra</h2>
-    <p class="text-xs text-[#86868B] mt-1">Revise seu pedido e conclua seu pagamento com total segurança via PagBank.</p>
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-8">
-    
-    <!-- Resumo do Pedido -->
-    <div class="card p-6 space-y-4">
-      <h3 class="text-base font-semibold text-white border-b border-white/10 pb-3">Resumo do Pedido</h3>
-      <div id="checkout-summary-list" class="space-y-3 text-xs text-[#86868B]">
-        <p>Nenhum item selecionado.</p>
-      </div>
-      <div class="pt-3 border-t border-white/10 flex justify-between font-bold text-sm text-white">
-        <span>Valor total:</span>
-        <span id="checkout-total-val" class="text-[#2997FF]">R$ 0,00</span>
-      </div>
-    </div>
-
-    <!-- Formas de Pagamento PagBank -->
-    <div class="card p-6 space-y-4">
-      <h3 class="text-base font-semibold text-white border-b border-white/10 pb-3">Pagamento Seguro com PagBank</h3>
-      <p class="text-xs text-[#86868B]">Clique abaixo para ser redirecionado à página oficial de checkout seguro para pagamento via Pix ou Cartão de Crédito em até 18x.</p>
-
-      <div id="checkout-pagbank-links" class="space-y-3 pt-2">
-        <p class="text-xs text-amber-400">Adicione um produto ao carrinho ou selecione uma das opções abaixo para pagar:</p>
-      </div>
-
-      <div class="pt-4 text-center">
-        <span class="text-[10px] text-[#5A5A60] flex items-center justify-center gap-1">
-          <i class="fa-solid fa-lock"></i> Ambiente de pagamento criptografado
-        </span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ SCRIPT DO CARRINHO E NAVEGAÇÃO ============ -->
+<!-- ============ SCRIPT DO CARRINHO E GOOGLE ANALYTICS ============ -->
 <script>
 let cart = [];
+
+// Funções para Rastreamento do Google Analytics
+function trackConversion(productName, price) {
+  if (typeof gtag === 'function') {
+    gtag('event', 'begin_checkout', {
+      currency: 'BRL',
+      value: price,
+      items: [{ item_name: productName, price: price }]
+    });
+  }
+}
+
+function trackCheckout(productName, price) {
+  if (typeof gtag === 'function') {
+    gtag('event', 'begin_checkout', {
+      currency: 'BRL',
+      value: price,
+      items: [{ item_name: productName, price: price }]
+    });
+  }
+}
 
 function addToCart(title, price, pagbankUrl) {
   const existing = cart.find(item => item.title === title);
@@ -258,6 +264,15 @@ function addToCart(title, price, pagbankUrl) {
   } else {
     cart.push({ title, price, pagbankUrl, qty: 1 });
   }
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'add_to_cart', {
+      currency: 'BRL',
+      value: price,
+      items: [{ item_name: title, price: price }]
+    });
+  }
+
   updateCartUI();
   openCart();
 }
@@ -271,28 +286,22 @@ function updateCartUI() {
   const cartItemsContainer = document.getElementById('cart-items');
   const cartCountEl = document.getElementById('cart-count');
   const cartTotalEl = document.getElementById('cart-total');
-  const checkoutSummaryList = document.getElementById('checkout-summary-list');
-  const checkoutTotalVal = document.getElementById('checkout-total-val');
-  const checkoutPagbankLinks = document.getElementById('checkout-pagbank-links');
+  const checkoutCartLink = document.getElementById('checkout-cart-link');
 
   let total = 0;
   let totalItems = 0;
 
   cartItemsContainer.innerHTML = '';
-  checkoutSummaryList.innerHTML = '';
-  checkoutPagbankLinks.innerHTML = '';
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = '<p class="text-xs text-[#86868B] text-center py-8">Seu carrinho está vazio.</p>';
-    checkoutSummaryList.innerHTML = '<p class="text-xs text-[#86868B]">Nenhum item selecionado.</p>';
-    checkoutPagbankLinks.innerHTML = '<p class="text-xs text-[#86868B]">Adicione produtos ao carrinho para gerar os links de checkout.</p>';
+    checkoutCartLink.href = "https://assistenciacolombo.com.br/checkout";
   } else {
     cart.forEach(item => {
       const itemSubtotal = item.price * item.qty;
       total += itemSubtotal;
       totalItems += item.qty;
 
-      // Item na gaveta
       cartItemsContainer.innerHTML += `
         <div class="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
           <div>
@@ -304,29 +313,13 @@ function updateCartUI() {
           </button>
         </div>
       `;
-
-      // Item no checkout
-      checkoutSummaryList.innerHTML += `
-        <div class="flex justify-between items-center">
-          <span>${item.qty}x ${item.title}</span>
-          <span class="text-white font-medium">R$ ${itemSubtotal.toFixed(2)}</span>
-        </div>
-      `;
-
-      // Botão individual do PagBank no Checkout
-      checkoutPagbankLinks.innerHTML += `
-        <a href="${item.pagbankUrl}" target="_blank" rel="noopener" 
-           class="w-full bg-[#2997FF] hover:bg-[#0077ED] text-white py-3 px-4 rounded-xl text-xs font-semibold flex items-center justify-between transition">
-          <span>Pagar ${item.title}</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      `;
     });
+
+    checkoutCartLink.href = `https://assistenciacolombo.com.br/checkout?total=${total.toFixed(2)}&itens=${totalItems}`;
   }
 
   cartCountEl.textContent = totalItems;
   cartTotalEl.textContent = `R$ ${total.toFixed(2)}`;
-  checkoutTotalVal.textContent = `R$ ${total.toFixed(2)}`;
 }
 
 function openCart() {
